@@ -185,7 +185,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+{{--           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -213,16 +213,63 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
+          </li> --}}
+          <li class="nav-item menu-open">
+            <a href="{{route('brand.index')}}" class="nav-link {{ Route::currentRouteNamed( 'brand*' ) ?  'active' : '' }}">
+              <i class="fa fa-tags"></i>
+              <p> Brands </p>
             </a>
           </li>
+
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p> Categories </p>
+            </a>
+          </li>
+
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-buromobelexperte"></i>
+              <p> Subcategories </p>
+            </a>
+          </li>
+
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fab fa-dropbox"></i>
+              <p> Items </p>
+            </a>
+          </li>
+
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p> Sliders </p>
+            </a>
+          </li>
+
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p> Blogs </p>
+            </a>
+          </li>
+
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p> Reviews </p>
+            </a>
+          </li>
+
+         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p> Orders </p>
+            </a>
+          </li>
+          {{-- 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -708,7 +755,7 @@
               <i class="nav-icon far fa-circle text-info"></i>
               <p>Informational</p>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
