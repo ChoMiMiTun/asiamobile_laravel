@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Subcategory;
+use App\Category;
 use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
@@ -14,7 +15,8 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        //
+        $subcategories = Subcategory::all();
+        return view('backend.subcategory.index', compact('subcategories'));
     }
 
     /**
@@ -24,7 +26,12 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        //
+        // return view('backend.subcategory.create');
+
+        $categories = Category::all();
+        
+        
+        return view('backend.subcategory.create',['categories'=>$categories]);
     }
 
     /**
@@ -35,7 +42,25 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+
+         $request->validate([
+
+            "name"=>"required|min:5",
+           "category_id"=>"required"
+
+       ]);
+
+         // // store
+           $subcategory = new Subcategory;
+           // dd($subcategory);
+         $subcategory->name = $request->name;
+        
+          $subcategory->category_id = $request->category_id;
+          $subcategory->save();
+
+         // // redirect
+           return redirect()->route('subcategory.index');
     }
 
     /**
@@ -46,7 +71,7 @@ class SubcategoryController extends Controller
      */
     public function show(Subcategory $subcategory)
     {
-        //
+         return view('backend.subcategory.show', compact('subcategory'));
     }
 
     /**
@@ -57,7 +82,10 @@ class SubcategoryController extends Controller
      */
     public function edit(Subcategory $subcategory)
     {
-        //
+        $categories = Category::all();
+        
+        
+        return view('backend.subcategory.edit',compact('subcategory','categories'));
     }
 
     /**
@@ -69,7 +97,25 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, Subcategory $subcategory)
     {
-        //
+         // dd($request);
+
+         $request->validate([
+
+            "name"=>"required|min:5",
+           "category_id"=>"required"
+
+       ]);
+
+         // // store
+           // dd($subcategory);
+
+           $subcategory->name = $request->name;
+        
+          $subcategory->category_id = $request->category_id;
+          $subcategory->save();
+
+         // // redirect
+           return redirect()->route('subcategory.index');
     }
 
     /**
@@ -80,6 +126,7 @@ class SubcategoryController extends Controller
      */
     public function destroy(Subcategory $subcategory)
     {
-        //
+         $subcategory->delete();
+        return redirect()->route('subcategory.index');
     }
 }
