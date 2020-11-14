@@ -14,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+         $blogs = Blog::all();
+        return view('backend.blog.index', compact('blogs'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.blog.create');
     }
 
     /**
@@ -35,7 +36,34 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // dd($request);
+
+        // Validation
+        $request->validate([
+            "title" => "required|min:4",
+            "photo" => "required|mimes:jpeg,bmp,png",
+            "content" => "required"
+        ]);
+
+        // if include file, upload
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('blogimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }
+
+        // store
+        $blog = new Blog();
+        $blog->title = $request->title;
+        $blog->photo = $path;
+        $blog->content = $request->content;
+        $blog->save();
+        // redirect
+        return redirect()->route('blog.index');
     }
 
     /**
@@ -46,7 +74,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('backend.blog.show', compact('blog'));
     }
 
     /**
@@ -57,7 +85,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('backend.blog.edit', compact('blog'));
     }
 
     /**
@@ -69,7 +97,39 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        // dd($request);
+
+        // Validation
+        $request->validate([
+            "title" => "required|min:4",
+            "content" => "required",
+            "photo" => "sometimes|required|mimes:jpeg,bmp,png", // a.jpg
+            "oldphoto" => "required"
+        ]);
+
+        // if include file, upload
+        if($request->file()) {
+            // delete olo photo
+
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('blogimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }else{
+            $path = $request->oldphoto;
+        }
+
+        // update
+        $blog->title = $request->title;
+        $blog->photo = $path;
+        $blog->content = $request->content;
+        $blog->save();
+
+        // redirect
+        return redirect()->route('blog.index');
     }
 
     /**
@@ -80,6 +140,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+         $blog->delete();
+        return redirect()->route('blog.index');
     }
 }
