@@ -25,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-         return view('brand.create');
+         return view('backend.brand.create');
     }
 
     /**

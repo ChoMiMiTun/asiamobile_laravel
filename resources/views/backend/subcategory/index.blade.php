@@ -27,10 +27,10 @@
     <section class="content">
       <div class="container-fluid">
 
-            <div class="card">
+            <div class="card card-primary card-outline">
               <div class="card-header">
-                <h3>Subcategories</h3>
-                <a href="{{route('subcategory.create')}}" class="btn btn-success float-right">Add New</a>
+                <h3 class="d-inline-block">Subcategories</h3>
+                <a href="{{route('subcategory.create')}}" class="btn btn-primary float-right">Add New</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
