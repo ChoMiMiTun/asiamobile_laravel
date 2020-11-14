@@ -18,10 +18,10 @@ class CreateItemsTable extends Migration
             $table->string('sku');
             $table->string('name');
             $table->text('photo');
-            $table->integer('price');
+            $table->string('price');
             $table->integer('discount')->default(0);
             $table->text('description');
-            $table->integer('status');
+            $table->integer('status')->default(0);
 
             $table->unsignedBigInteger('brand_id');
 

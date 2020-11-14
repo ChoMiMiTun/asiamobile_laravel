@@ -79,7 +79,7 @@ class ItemController extends Controller
         $item->save();
 
         // redirect
-        return redirect()->route('backend.item.index');
+        return redirect()->route('item.index');
     }
 
     /**
@@ -152,7 +152,7 @@ class ItemController extends Controller
         $item->save();
 
         // redirect
-        return redirect()->route('backend.item.index');
+        return redirect()->route('item.index');
         // return redirect('item')->with('success', 'Item updated successfully!');
     }
 

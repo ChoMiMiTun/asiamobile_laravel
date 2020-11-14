@@ -16,7 +16,7 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->text('feedback');
-            $table->status('integer')->default(0);
+            $table->integer('status')->default(0);
 
             $table->unsignedBigInteger('user_id');
 

@@ -30,7 +30,7 @@
       	    <div class="card card-primary card-outline">
               <div class="card-header">
                 <h4 class="d-inline-block">Item List</h4>
-                <a href="{{route('item.create')}}" class="btn btn-primary float-right">Add New</a>
+            <a href="{{route('item.create')}}" class="btn btn-primary float-right">Add New</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -55,9 +55,9 @@
                         <td><img src="{{asset($item->photo)}}" class="img-fluid" width="100px"></td>
                         <td>
                           @if($item->discount > 0)
-                          {{number_format($item->discount)}}
+                          {{$item->discount}}
                           @else
-                            {{number_format($item->price)}}
+                            {{$item->price}}
                           @endif
                         </td>
                       <td>
