@@ -21,7 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('price');
             $table->integer('discount')->default(0);
             $table->text('description');
-            $table->integer('status')->default(0);
+            $table->integer('status');
 
             $table->unsignedBigInteger('brand_id');
 

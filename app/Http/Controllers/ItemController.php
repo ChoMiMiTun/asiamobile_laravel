@@ -48,13 +48,14 @@ class ItemController extends Controller
         // dd($request);
 
         $request->validate([
+            "status" => "required",
             "name" => "required|min:4",
             "price" => "required",
             "discount" => "sometimes|required",
             "photo" => "required|mimes:jpeg,bmp,png",
             "brand" => "required",
             "subcategory" => "required",
-            "description" => "required"
+            "description" => "required",
         ]);
 
         if($request->file()){
@@ -68,6 +69,7 @@ class ItemController extends Controller
 
         // store
         $item = new Item;
+        $item->status = $request->status;
         $item->name = $request->name;
         $item->sku = $request->sku;
         $item->price = $request->price;
@@ -117,6 +119,7 @@ class ItemController extends Controller
     public function update(Request $request, Item $item)
     {
         $request->validate([
+            "status" => "required",
             "name" => "required|min:4",
             "price" => "required",
             "discount" => "sometimes|required",
@@ -149,6 +152,15 @@ class ItemController extends Controller
         $item->brand_id =  $request->brand;
         $item->subcategory_id =  $request->subcategory;
         $item->description =  $request->description;
+
+        if ($item->status == 1) {
+            $item->status = 0;
+            $status = 'disabled';
+        } else {
+            $item->status = 1;
+            $status = 'enabled';
+        }
+
         $item->save();
 
         // redirect

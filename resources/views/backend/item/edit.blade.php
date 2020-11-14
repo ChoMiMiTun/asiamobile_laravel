@@ -29,7 +29,7 @@
 
 		<div class="card card-primary card-outline">
 		      <div class="card-header">
-		        <h4 class="d-inline-block">Item Detail</h4>
+		        <h4 class="d-inline-block">Item Edit</h4>
 		    	<a href="{{route('item.create')}}" class="btn btn-primary float-right">Add New</a>
 		      </div>
 		    <!-- /.card-header -->
@@ -41,6 +41,20 @@
 				          <form method="post" action="{{route('item.update',$item->id)}}" enctype="multipart/form-data">
 				            @csrf
 				            @method('PUT')
+
+				            <div class="form-group row">
+				               <label class="control-label col-md-2">Status:</label>
+				                <div class="col-md-10">
+				                    <select name="status" class="form-control">
+				                    	<option value="">Select status</option>
+				                    	{{-- {{ $item->status  ? 'selected' : '' }} --}}
+				                        <option value="{{$item->status}}">Publish</option>
+				                        <option value="{{$item->status}}">Unpublish</option>
+				                          {{-- <option value="{{$item->status}}" {{ $item->id  ? 'selected' : '' }}>
+				                          	{{$item->status}}</option> --}}
+				                    </select>
+				                </div>
+				            </div>
 				            <div class="form-group row">
 				              <label class="control-label col-md-2">Item Name:</label>
 				              <div class="col-md-10">
@@ -55,7 +69,7 @@
 
 				            <div class="form-group row">
 				               <label class="control-label col-md-2">SKU:</label>
-				                <div class="col-md-9">
+				                <div class="col-md-10">
 				                  <input type="text" name="sku" class="form-control @error('sku') is-invalid @enderror" placeholder="SKU ..." value="{{$item->sku}}">
 				                   @error('sku')
 				                    <span class="invalid-feedback" role="alert">

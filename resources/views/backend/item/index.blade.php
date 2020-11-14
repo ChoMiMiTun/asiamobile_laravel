@@ -42,6 +42,7 @@
                       <th>Photo</th>
                       <th>Price</th>
                       <th>Actions</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -68,7 +69,13 @@
                           @method('DELETE')
                           <input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
                         </form>
-                        
+                      </td>
+                      <td>
+                          @if($item->status == 1)
+                              <span class="badge badge-primary">Active</span>
+                          @else
+                              <span class="badge badge-danger">Unactive</span>
+                          @endif
                       </td>
                     </tr>
                     @endforeach

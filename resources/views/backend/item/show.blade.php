@@ -30,7 +30,6 @@
 		<div class="card card-primary card-outline">
 		      <div class="card-header">
 		        <h4 class="d-inline-block">Item Detail</h4>
-		    	<a href="{{route('item.create')}}" class="btn btn-primary float-right">Add New</a>
 		      </div>
 		    <!-- /.card-header -->
 			  <div class="card-body">

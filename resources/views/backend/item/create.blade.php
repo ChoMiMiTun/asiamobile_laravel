@@ -24,12 +24,12 @@
     <!-- /.content-header -->
  @if (isset($errors) && count($errors))
      
-            There were {{count($errors->all())}} Error(s)
-                        <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }} </li>
-                    @endforeach
-                        </ul>
+    There were {{count($errors->all())}} Error(s)
+                <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }} </li>
+            @endforeach
+                </ul>
                 
   @endif
     <!-- Main content -->
@@ -45,6 +45,17 @@
 
           <form method="POST" action="{{route('item.store')}}" enctype="multipart/form-data" class="my-3">
              @csrf
+
+              <div class="form-group row">
+                <label class="control-label col-md-2">Status:</label>
+                <div class="col-md-9">
+                    <select name="status" class="form-control">
+                        <option value="1">Publish</option>
+                        <option value="0">Unpublish</option>
+                    </select>
+                </div>
+              </div>
+
               <div class="form-group row">
                 <label class="control-label col-md-2">Item Name:</label>
                 <div class="col-md-9">
