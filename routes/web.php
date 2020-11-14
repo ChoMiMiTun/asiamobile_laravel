@@ -23,3 +23,7 @@ Route::get('/', function () {
   Route::resource('category', 'CategoryController');
   Route::resource('subcategory', 'SubcategoryController');
   Route::resource('item', 'ItemController');
+
+  // Frontend with items
+  
+Route::get('/', 'FrontendController@home')->name('mainpage');
