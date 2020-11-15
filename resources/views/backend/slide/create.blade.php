@@ -22,40 +22,20 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-@if (isset($errors) && count($errors))
-     
-            There were {{count($errors->all())}} Error(s)
-                        <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }} </li>
-                    @endforeach
-                        </ul>
-                
-        @endif
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
 
       	    <div class="card card-primary">
               <div class="card-header">
-                <h4>Create Brand</h4>
+                <h4>Create Slider</h4>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
 
-                <form method="post" action="{{route('brand.store')}}" enctype="multipart/form-data" class="my-3">
+                <form method="post" action="{{route('slide.store')}}" enctype="multipart/form-data" class="my-3">
                   @csrf
-                    <div class="form-group row py-2">
-                      <label class="control-label col-md-2">Name:</label>
-                      <div class="col-md-10">
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror">
-                         @error('name')
-                          <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                      </div>
-                    </div>
 
                     <div class="form-group row py-2">
                       <label class="control-label col-md-2">Photo: (<small class="text-danger">* jpeg|bmp|png</small>)</label>
@@ -69,10 +49,19 @@
                       </div>
                     </div>
 
+ 
+
+                    <div class="form-group row">
+                        <label for="description" class="col-md-2 col-form-label"> Description </label>
+                        <div class="col-md-9">
+                          <textarea rows="6" class="form-control textarea" id="description"  name="description" placeholder="Slider Description...">{{old('description')}}</textarea>
+                        </div>
+                    </div>
+
                     <div class="form-group row py-2">
                       <div class="offset-2 col-md-9">
                         <input type="submit" name="btnsubmit" value="Save" class="btn btn-primary">
-                        <a href="{{route('brand.index')}}" class="btn btn-outline-primary ml-2">Back</a>
+                        <a href="{{route('slide.index')}}" class="btn btn-outline-primary ml-2">Back</a>
                       </div>
                     </div>
                 </form>

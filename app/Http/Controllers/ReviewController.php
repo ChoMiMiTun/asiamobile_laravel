@@ -14,7 +14,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::all();
+        return view('backend.review.index', compact('reviews'));
     }
 
     /**
@@ -35,7 +36,23 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+
+         $request->validate([
+
+            "name"=>"required|min:4"
+
+       ]);
+
+         // store
+          $review = new Review;
+          $review->feedback = $request->name;
+        
+          $review->user_id = $request->user_id;
+          $review->save();
+
+         // redirect
+           return redirect()->route('review.index');
     }
 
     /**
@@ -46,7 +63,7 @@ class ReviewController extends Controller
      */
     public function show(Review $review)
     {
-        //
+        return view('backend.review.show', compact('review'));
     }
 
     /**

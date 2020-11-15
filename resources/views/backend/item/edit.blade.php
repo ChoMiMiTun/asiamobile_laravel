@@ -1,6 +1,6 @@
 @extends('backend/backendtemplate')
 
-@section('title', 'Backend')
+@section('title', 'Edit Item')
 
 @section('content')
 

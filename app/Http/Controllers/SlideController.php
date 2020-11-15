@@ -14,7 +14,8 @@ class SlideController extends Controller
      */
     public function index()
     {
-        //
+        $slides = Slide::all();
+        return view('backend.slide.index', compact('slides'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SlideController extends Controller
      */
     public function create()
     {
-        //
+         return view('backend.slide.create');
     }
 
     /**
@@ -35,7 +36,33 @@ class SlideController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        // Validation
+        $request->validate([
+            "description" => "sometimes|required|min:4",
+            "photo" => "required|mimes:jpeg,bmp,png"
+        ]);
+
+        // if include file, upload
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // slideimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('slideimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }
+
+        // store
+        $slide = new Slide();
+        $slide->description = $request->description;
+        $slide->photo = $path;
+        $slide->save();
+
+        // redirect
+        return redirect()->route('slide.index');
     }
 
     /**
@@ -46,7 +73,7 @@ class SlideController extends Controller
      */
     public function show(Slide $slide)
     {
-        //
+        return view('backend.slide.show', compact('slide'));
     }
 
     /**
@@ -57,7 +84,7 @@ class SlideController extends Controller
      */
     public function edit(Slide $slide)
     {
-        //
+        return view('backend.slide.edit', compact('slide'));
     }
 
     /**
@@ -69,7 +96,37 @@ class SlideController extends Controller
      */
     public function update(Request $request, Slide $slide)
     {
-        //
+        // dd($request);
+
+        // Validation
+        $request->validate([
+            "description" => "sometimes|required|min:4",
+            "photo" => "sometimes|required|mimes:jpeg,bmp,png", // a.jpg
+            "oldphoto" => "required"
+        ]);
+
+        // if include file, upload
+        if($request->file()) {
+            // delete olo photo
+
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // slideimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('slideimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }else{
+            $path = $request->oldphoto;
+        }
+
+        // update
+        $slider->name = $request->name;
+        $slider->photo = $path;
+        $slider->save();
+
+        // redirect
+        return redirect()->route('slide.index');
     }
 
     /**
@@ -80,6 +137,7 @@ class SlideController extends Controller
      */
     public function destroy(Slide $slide)
     {
-        //
+        $slide->delete();
+        return redirect()->route('slide.index');
     }
 }

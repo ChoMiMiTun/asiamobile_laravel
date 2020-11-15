@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Backend Template routes
 
@@ -24,7 +24,13 @@ Route::get('/', function () {
   Route::resource('subcategory', 'SubcategoryController');
   Route::resource('item', 'ItemController');
   Route::resource('blog', 'BlogController');
+  Route::resource('slide', 'SlideController');
 
   // Frontend with items
   
 Route::get('/', 'FrontendController@home')->name('mainpage');
+Route::get('/review', 'FrontendController@review')->name('review');
+Route::get('/contact', 'FrontendController@contact')->name('contact');
+Route::get('/bolg', 'FrontendController@blog')->name('blogpage');
+
+Route::get('cart', 'FrontendController@cart')->name('cart');
