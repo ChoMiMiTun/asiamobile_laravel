@@ -1759,6 +1759,7 @@ Version:1.0
 }
 .single-product .product-img a img {
   width: 100%;
+  padding: 10px;
 }
 .single-product .product-img a img.hover-img {
   position: absolute;
@@ -1766,6 +1767,7 @@ Version:1.0
   top: 0;
   z-index: 1;
   opacity: 0;
+  padding: 8px;
   transition: opacity 0.5s ease, transform 2s cubic-bezier(0, 0, 0.44, 1.18), -webkit-transform 2s cubic-bezier(0, 0, 0.44, 1.18);
 }
 .single-product .product-img a span.price-dec {
