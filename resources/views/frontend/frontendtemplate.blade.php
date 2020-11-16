@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Meta Tag -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,8 +70,8 @@
 						<!-- Top Left -->
 						<div class="top-left">
 							<ul class="list-main">
-								<li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-								<li><i class="ti-email"></i> support@shophub.com</li>
+								<li><i class="ti-headphone-alt"></i> 01 505050</li>
+								<li><i class="ti-email"></i> info@asiamobile.com</li>
 							</ul>
 						</div>
 						<!--/ End Top Left -->
@@ -123,6 +124,13 @@
 									<option>watch</option>
 									<option>mobile</option>
 									<option>kid’s item</option>
+
+									{{-- @foreach($category->subcategories as $subcategory)
+										<option>
+											{{$subcategory->name}}
+										</option>
+									@endforeach --}}
+
 								</select>
 								<form>
 									<input name="search" placeholder="Search Products Here....." type="search">
@@ -210,7 +218,7 @@
 								<a href="index.html"><img src="{{asset('../frontend_asset/images/logo2.png')}}" alt="#"></a>
 							</div>
 							<p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue,  magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+							<p class="call">Got Question? Call us 24/7<span><a href="tel:01505050">01 505050</a></span></p>
 						</div>
 						<!-- End Single Widget -->
 					</div>
@@ -228,31 +236,17 @@
 						</div>
 						<!-- End Single Widget -->
 					</div>
-					<div class="col-lg-2 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer links">
-							<h4>Customer Service</h4>
-							<ul>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Money-back</a></li>
-								<li><a href="#">Returns</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-						<!-- End Single Widget -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer social">
 							<h4>Get In Tuch</h4>
 							<!-- Single Widget -->
 							<div class="contact">
 								<ul>
-									<li>NO. 342 - London Oxford Street.</li>
-									<li>012 United Kingdom.</li>
-									<li>info@eshop.com</li>
-									<li>+032 3456 7890</li>
+									<li>NO. 342 - Shwe Laung Street,</li>
+									<li>Sanchaung Township, Yangon, Myanmar.</li>
+									<li>info@asiamobile.com</li>
+									<li>+01 505050</li>
 								</ul>
 							</div>
 							<!-- End Single Widget -->
@@ -275,12 +269,12 @@
 					<div class="row">
 						<div class="col-lg-6 col-12">
 							<div class="left">
-								<p>Copyright © 2020 <a href="http://www.wpthemesgrid.com" target="_blank">Wpthemesgrid</a>  -  All Rights Reserved.</p>
+								<p>Copyright © 2020 <a href="http://www.asiamobile.com" target="_blank">Asia Mobile Store</a>  -  All Rights Reserved.</p>
 							</div>
 						</div>
 						<div class="col-lg-6 col-12">
 							<div class="right">
-								<img src="{{asset('../frontend_asset/images/payments.png')}}" alt="#">
+								{{-- <img src="{{asset('../frontend_asset/images/payments.png')}}" alt="#"> --}}
 							</div>
 						</div>
 					</div>

@@ -33,7 +33,7 @@ Route::get('/review', 'FrontendController@review')->name('review');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/bolg', 'FrontendController@blog')->name('blogpage');
 
-Route::get('cart', 'FrontendController@cart')->name('cart');
+Route::get('cart', 'FrontendController@cart')->name('cartpage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

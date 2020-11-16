@@ -157,3 +157,26 @@
 	<!-- End Shop Newsletter -->
 
 @endsection
+
+@section('script')
+    <script type="text/javascript" src="{{asset('my_asset/custom.js')}}"></script>
+
+    <script type="text/javascript">
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+      
+      $(document).ready(function () {
+        $('.checkout').click(function () {
+          let notes = $('.notes').val();
+          let order = localStorage.getItem('items'); // JSON String
+          $.post("{{route('order.store')}}",{order:order,notes:notes},function (response) {
+            console.log(response.msg);
+          })
+        })
+      })
+    </script>
+
+@endsection

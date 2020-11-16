@@ -19,7 +19,7 @@
 						<div class="content">
 							<p class="date">22 July , 2020. Monday</p>
 							<a href="#" class="title">{{$blog->title}}</a>
-							<a href="#" class="more-btn">Continue Reading</a>
+							<a href="{{route('blogdetail', $blog->id)}}" class="more-btn">Continue Reading</a>
 						</div>
 					</div>
 					<!-- End Single Blog  -->
