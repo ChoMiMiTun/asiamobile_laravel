@@ -17,7 +17,7 @@
 									</ul>
 								</li>
 								<li><a href="#">Pages</a></li>									
-								<li><a href="{{route('blogpage')}}">Blog<i class="ti-angle-down"></i></a>
+								<li><a href="#">Blog<i class="ti-angle-down"></i></a>
 									{{-- <ul class="dropdown">
 										<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
 									</ul> --}}

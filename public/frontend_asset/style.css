@@ -1666,7 +1666,7 @@ Version:1.0
   top: 0;
 }
 .most-popular .single-product{
-	margin:50px 15px 0 15px;
+	margin:10px 15px 0 15px;
 }
 /* Slider Nav */
 .most-popular .owl-nav{
@@ -4948,3 +4948,27 @@ Version:1.0
 /*=============================
 	End Footer CSS
 ===============================*/
+
+.description ul li{
+	list-style-type: disc!important;
+	margin: 5px 0;
+}
+
+.description ul{
+	margin: 20px 0 20px 20px;
+}
+
+.shop-single-blog img{
+	width: 370px;
+	object-fit: cover;
+}
+
+.brand-item{
+	border-right: 1px solid #bfbfbf;
+	border-bottom: 1px solid #bfbfbf;
+}
+
+.brand-item:last-child{
+	border-right: none;
+	
+}

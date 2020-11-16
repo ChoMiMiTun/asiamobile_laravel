@@ -49,10 +49,16 @@
               <div class="form-group row">
                 <label class="control-label col-md-2">Status:</label>
                 <div class="col-md-9">
-                    <select name="status" class="form-control">
+                    <select name="status" class="form-control" required="">
+                      <option value="0" class="@error('status') is-invalid @enderror">Select status</option>
                         <option value="1">Publish</option>
                         <option value="0">Unpublish</option>
                     </select>
+                     @error('status')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                   @enderror
                 </div>
               </div>
 

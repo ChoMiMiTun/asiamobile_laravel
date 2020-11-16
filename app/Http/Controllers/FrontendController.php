@@ -24,7 +24,14 @@ class FrontendController extends Controller
 
     public function cart($value='')
     {
-        return view('frontend.cart');
+    	$blogs = Blog::all();
+        return view('frontend.cartpage');
+    }
+
+    public function brands($value='')
+    {
+    	$brands = Brand::all();
+        return view('frontend.itembybrand', compact('brands'));
     }
 
     public function review($value='')
@@ -37,9 +44,17 @@ class FrontendController extends Controller
         return view('frontend.contact');
     }
 
-    // public function blog($value='')
-    // {
-    //     return view('frontend.blog');
-    // }
+    public function itemdetail($id)
+    {
+        $item = Item::find($id);
+        return view('frontend.itemdetail',compact('item'));
+    }
+
+
+    public function blogdetail($id)
+    {
+    	$blogdetail = Blog::find($id);
+        return view('frontend.blogdetail',compact('blogdetail'));
+    }
 
 }
