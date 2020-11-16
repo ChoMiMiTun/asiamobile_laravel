@@ -57,4 +57,17 @@ class FrontendController extends Controller
         return view('frontend.blogdetail',compact('blogdetail'));
     }
 
+
+    //signin signup
+
+     public function signin($value='')
+    {
+        return view('frontend.signinpage');
+    }
+
+    public function signup($value='')
+    {
+        return view('frontend.signuppage');
+    }
+
 }
