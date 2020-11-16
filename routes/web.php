@@ -29,7 +29,6 @@ use Illuminate\Support\Facades\Route;
   // Frontend with items
   
 Route::get('/', 'FrontendController@home')->name('mainpage');
-// Route::get('/', 'FrontendController@allcat')->name('frontendtemplate');
 Route::get('/review', 'FrontendController@review')->name('review');
 Route::get('/brands', 'FrontendController@brands')->name('brandpage');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
@@ -37,3 +36,6 @@ Route::get('/blogdetail/{id}', 'FrontendController@blogdetail')->name('blogdetai
 Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
 
 Route::get('cart', 'FrontendController@cart')->name('cartpage');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

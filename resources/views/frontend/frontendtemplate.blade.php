@@ -146,12 +146,12 @@
 								<a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 							</div>
 							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+								{{-- <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a> --}}
 							</div>
 							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+								<a href="{{route('cartpage')}}" class="single-icon"><i class="ti-bag"></i> <span class="total-count" id="cart">0</span></a>
 								<!-- Shopping Item -->
-								<div class="shopping-item">
+								{{-- <div class="shopping-item">
 									<div class="dropdown-cart-header">
 										<span>2 Items</span>
 										<a href="#">View Cart</a>
@@ -177,7 +177,7 @@
 										</div>
 										<a href="checkout.html" class="btn animate">Checkout</a>
 									</div>
-								</div>
+								</div> --}}
 								<!--/ End Shopping Item -->
 							</div>
 						</div>
