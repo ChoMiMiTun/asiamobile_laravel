@@ -61,9 +61,16 @@
 							</div>
 							<!--/ End Input Order -->
 						</div>
-						<div class="add-to-cart">
-							<a href="#" class="btn">Add to cart</a>
-						</div>
+						{{-- <div class="add-to-cart">
+							<a href="" class="btn addtocartBtn data-id={{$item->id}}">Add to cart</a>
+						</div> --}}
+
+						<button class="btn btn-success addtocartBtn"
+                data-id="{{ $item->id }}"
+				data-name="{{ $item->name}} "
+				data-photo="{{ $item->photo }}"
+				data-price="{{ $item->price }}"
+				>Add To Cart</button>
 						</div>
 
 					</div>
@@ -71,12 +78,22 @@
 				</div>
 			</div>
 
-{{-- 			<div class="row">
-				<div class="col-md-12">
-
-				</div>
-			</div> --}}
 		</div>
 	</section>
 
+@endsection
+
+
+@section('script')
+    <script type="text/javascript" src="{{asset('my_asset/custom.js')}}"></script>
+
+    {{-- <script>
+    	$(document).ready(function() {
+        $('.addtocartBtn').click(function() {
+
+        	alert("OK");
+    
+        })
+      })
+    </script> --}}
 @endsection

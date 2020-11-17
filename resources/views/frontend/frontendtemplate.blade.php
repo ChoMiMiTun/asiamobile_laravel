@@ -316,5 +316,8 @@
 	<script src="{{asset('../frontend_asset/js/easing.js')}}"></script>
 	<!-- Active JS -->
 	<script src="{{asset('../frontend_asset/js/active.js')}}"></script>
+
+	@yield('script')
+	
 </body>
 </html>
