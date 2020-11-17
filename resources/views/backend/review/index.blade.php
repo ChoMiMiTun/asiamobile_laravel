@@ -28,10 +28,6 @@
       <div class="container-fluid">
 
             <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h3 class="d-inline-block">Subcategories</h3>
-                <a href="{{route('subcategory.create')}}" class="btn btn-primary float-right">Add New</a>
-              </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -59,8 +55,8 @@
                   <td>{{$review->updated_at->format('d-m-Y')}}</td>
                   <td>
                     {{-- <a href="{{route('review.edit',$review->id)}}" class="btn btn-warning">Edit</a> --}}
-                    <a href="{{route('review.show',$review->id)}}" class="btn btn-info">Show</a>
-                    <form method="post" action="{{route('review.destroy',$review->id)}}" class="d-inline-block" onsubmit="return confirm('Are you Sure to Delete?')">
+                    <a href="{{route('reviews.show',$review->id)}}" class="btn btn-info">Show</a>
+                    <form method="post" action="{{-- {{route('review.destroy',$review->id)}} --}}" class="d-inline-block" onsubmit="return confirm('Are you Sure to Delete?')">
                       @csrf
                       @method('DELETE')
                       <input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">

@@ -19,22 +19,41 @@ use Illuminate\Support\Facades\Route;
 
 // Backend Template routes
 
+Route::middleware('role:admin')->group(function () {
+
   Route::resource('brand', 'BrandController'); 
   Route::resource('category', 'CategoryController');
   Route::resource('subcategory', 'SubcategoryController');
   Route::resource('item', 'ItemController');
   Route::resource('blog', 'BlogController');
   Route::resource('slide', 'SlideController');
+ Route::post('review', 'ReviewContorller@store')->name('feedback');
+ Route::get('customerreviews', 'ReviewController@index')->name('reviews');
+ Route::get('customerreviews/{id}', 'ReviewController@show')->name('reviews.show');
+ Route::resource('order', 'OrderController');
+
+  });
 
   // Frontend with items
-  
+ 
 Route::get('/', 'FrontendController@home')->name('mainpage');
-Route::get('/review', 'FrontendController@review')->name('review');
+// Route::get('review', 'FrontendController@review')->name('review');
+
+Route::get('reviews', 'ReviewController@reviews')->name('reviews');
+
+Route::post('reviews', 'ReviewController@store')->name('reviews.review');
+
+
+
 Route::get('/brands', 'FrontendController@brands')->name('brandpage');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/blogdetail/{id}', 'FrontendController@blogdetail')->name('blogdetail');
 Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
-// Route::get('/bolg', 'FrontendController@blog')->name('blogpage');
+Route::get('itemsbysubcategory/{id}', 'FrontendController@itemsbysubcategory')->name('itemsbysubcategory');
+Route::get('itemsbybrand/{id}', 'FrontendController@itemsbybrand')->name('itemsbybrand');
+Route::get('/blogs', 'FrontendController@blogs')->name('blogpage');
+
+
 
 Route::get('cart', 'FrontendController@cart')->name('cartpage');
 

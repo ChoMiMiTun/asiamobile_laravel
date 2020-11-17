@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use Illuminate\Http\Request;
+use Auth;
+use User;
 
 class ReviewController extends Controller
 {
@@ -12,6 +14,8 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $reviews = Review::all();
@@ -40,19 +44,19 @@ class ReviewController extends Controller
 
          $request->validate([
 
-            "name"=>"required|min:4"
+            "feedback"=>"required|min:4"
 
        ]);
 
          // store
           $review = new Review;
-          $review->feedback = $request->name;
+          $review->feedback = $request->feedback;
         
-          $review->user_id = $request->user_id;
+          $review->user_id = Auth::user()->id;
           $review->save();
 
          // redirect
-           return redirect()->route('review.index');
+           return redirect()->route('frontend.homepage.mainpage');
     }
 
     /**
@@ -98,5 +102,10 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         //
+    }
+
+    public function reviews($value='')
+    {
+        return view('frontend.feedback');
     }
 }

@@ -1,4 +1,4 @@
-// alert("ok");
+// // alert("ok");
 
 
 
@@ -8,9 +8,13 @@ $(document).ready(function(){
 			count();
 
 		$(".addtocartBtn").click(function(){
-			// alert("ok");
+			//alert("ok");
 			var id = $(this).data("id");
+
+			//alert(id);
+
 			var name = $(this).data("name");
+			//alert(name);
 			var photo = $(this).data("photo");
 			var price = $(this).data("price");
 			var sku = $(this).data("sku");
@@ -27,10 +31,13 @@ $(document).ready(function(){
 				discount : discount,
 				qty : 1
 			}
+			//console.log(item);
 
 			var itemList = localStorage.getItem('items');
 
-			console.log(itemList);
+			// console.log(itemlist);
+
+			// console.log(itemList);
 			var itemArray;
 			if(itemList==null){
 				itemArray = [];
@@ -117,7 +124,6 @@ $(document).ready(function(){
 										${subTotal} Ks
 									</td>
 								</tr>
-
 							`
 					})
 

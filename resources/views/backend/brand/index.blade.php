@@ -55,7 +55,7 @@
 	              <tr>
 	                <td>{{$i++}}</td>
 	                <td>{{$brand->name}}</td>
-	                <td><img src="{{$brand->photo}}" class="img-fluid" style="width: 80px"></td>
+	                <td><img src="{{asset($brand->photo)}}" class="img-fluid" style="width: 80px"></td>
 	                <td>{{$brand->created_at->format('d-m-Y')}}</td>
 	                <td>{{$brand->updated_at->format('d-m-Y')}}</td>
 	                <td>

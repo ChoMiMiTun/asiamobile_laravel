@@ -6,7 +6,7 @@
 
 
 	<!-- Breadcrumbs -->
-	<div class="breadcrumbs">
+	{{-- <div class="breadcrumbs">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -19,14 +19,14 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 	<!-- End Breadcrumbs -->
 		
 	<!-- Start Blog Single -->
 	<section class="blog-single section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-12">
+				<div class="col-lg-12 col-12">
 					<div class="blog-single-main">
 						<div class="row">
 							<div class="col-12">

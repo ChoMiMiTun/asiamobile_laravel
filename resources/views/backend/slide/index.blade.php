@@ -55,7 +55,7 @@
 	              <tr>
 	                <td>{{$i++}}</td>
 	                <td><img src="{{$slide->photo}}" class="img-fluid" style="width: 80px"></td>
-                  <td>{{$slide->description}}</td>
+                  <td>{!!$slide->description!!}</td>
 	                <td>{{$slide->created_at->format('d-m-Y')}}</td>
 	                <td>{{$slide->updated_at->format('d-m-Y')}}</td>
 	                <td>

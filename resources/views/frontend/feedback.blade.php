@@ -13,22 +13,10 @@
 						<div class="reply-head">
 							<h2 class="reply-title">Leave Your Review</h2>
 							<!-- Comment Form -->
-							<form method="post" action="{{route('review.store')}}" enctype="multipart/form-data" class="my-3">
+							<form method="post" action="{{route('reviews.review')}}" enctype="multipart/form-data" class="my-3">
                   			  @csrf
 
 								<div class="row">
-									{{-- <div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Your Name<span>*</span></label>
-											<input type="text" name="name" placeholder="" required="required">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Your Email<span>*</span></label>
-											<input type="email" name="email" placeholder="" required="required">
-										</div>
-									</div> --}}
 									<div class="col-12">
 										<div class="form-group">
 											<label>Any Feedback?<span>*</span></label>

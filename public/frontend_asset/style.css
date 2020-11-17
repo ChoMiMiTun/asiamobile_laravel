@@ -407,7 +407,7 @@ Version:1.0
 	display: inline-block;
 	margin-right: 4px;
 	font-size: 15px;
-	color: #F7941D;
+	color: #c49a0c;
 	position: relative;
 	top: 1px;
 }
@@ -624,7 +624,7 @@ Version:1.0
 }
 .header.shop .logo {
 	float: left;
-	margin: 19px 0 0;
+	margin: 0px 0 0;
 }
 .header.shop .top-contact {
 	margin-top:0px;
@@ -957,41 +957,41 @@ Version:1.0
 }
 .header.shop .nav li:hover a{
 	color:#fff;
-	background:#F7941D;
+	background:#c49a0c;
 }
 .header.shop.v2 .nav li:hover a{
-	color:#F7941D;
+	color:#c49a0c;
 	background:transparent;
 }
 .header.shop .nav li.active a{
 	color:#fff;
-	background:#F7941D;
+	background:#c49a0c;
 }
 .header.shop.v2 .nav li.active a{
 	color:#333 !important;
 	background:transparent !important;
 }
 .header.shop.v2 .nav li.active a{
-	color:#F7941D !important;
+	color:#c49a0c !important;
 }
 .header.shop .nav .dropdown li{
 	margin:0;
 }
 .header.shop .nav li .dropdown li:hover a{
-	background:#F7941D;
+	background:#c49a0c;
 }
 .header.shop.v2 .nav li.active .dropdown li a{
 	color:#333 !important;
 }
 .header.shop.v2 .nav li.active .dropdown li a:hover{
 	color:#fff !important;
-	background:#F7941D !important;
+	background:#c49a0c !important;
 }
 .header.shop.v2 .nav li.active .dropdown li a:hover{
 	color:#fff !important;
 }
 .header.shop.v2 .nav li .dropdown li:hover a{
-	color:#F7941D;
+	color:#c49a0c;
 }
 .header.shop .nav li .dropdown li a {
 	color: #333;
@@ -1012,10 +1012,10 @@ Version:1.0
 }
 .header.shop.v2 .nav li .dropdown li a:hover{
 	color:#fff !important;
-	background:#F7941D;
+	background:#c49a0c;
 }
 .header.shop .nav li .dropdown li .dropdown.sub-dropdown li a:hover{
-	background:#F7941D;
+	background:#c49a0c;
 }
 .header.shop .right-bar {
 	display: inline-block;
@@ -1043,7 +1043,7 @@ Version:1.0
 	position: absolute;
 	top: -7px;
 	right: -8px;
-	background: #f6931d;
+	background: #c49a0c;
 	width: 18px;
 	height: 18px;
 	line-height: 18px;
@@ -1658,7 +1658,7 @@ Version:1.0
 	text-align: center;
 }
 .most-popular .section-title{
-	margin-bottom:40px;
+	margin-bottom:20px;
 }
 .pro-tab-viewmore-wrap .pro-viewmore {
   position: absolute;
@@ -1694,7 +1694,7 @@ Version:1.0
 }
 .most-popular .owl-carousel .owl-nav div:hover{
 	color:#fff;
-	background:#F7941D;
+	background:#c49a0c;
 }
 .most-popular .owl-carousel .owl-controls .owl-nav .owl-prev{
 	left:0;
@@ -2036,7 +2036,7 @@ Version:1.0
 	padding: 30px;
 }
 .shop-sidebar .single-widget:first-child {
-	margin-top: 0;
+	margin-top: 30px;
 }
 .shop-sidebar .single-widget .title {
 	position: relative;
@@ -4052,6 +4052,7 @@ Version:1.0
 	-webkit-transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;
 	transition:all 0.4s ease;
+	border: 1px solid #f2f2f2;
 }
 .shop-blog .shop-single-blog:hover{
 	box-shadow: 0px 10px 10px #0000000a;
@@ -4364,7 +4365,7 @@ Version:1.0
 	position:relative;
 }
 .blog-single .image img{
-	width:100%;
+	/*width:100%;*/
 	height:100%;
 }
 .blog-single .blog-title {
@@ -4423,17 +4424,19 @@ Version:1.0
 	padding-left: 20px;
 	padding: 10px 20px;
 	background: #F6F6F6;
-	padding: 30px 40px 30px 70px;
+	padding: 20px 40px 20px 60px;
 	color: #555;
 	border: none;
 	/*margin-bottom: 25px;*/
 	margin-top: 30px!important;
-	border-left: 3px solid #F7941D;
+	border-left: 3px solid #c49a0c;
 	margin: 12px;
+	height: 190px;
+	max-height: 190px;
 }
 .blog-single blockquote i {
-	font-size: 30px;
-	color: #F7941D;
+	font-size: 20px;
+	color: #c49a0c;
 	position: absolute;
 	left: 20px;
 	top: 20px;
@@ -4679,7 +4682,7 @@ Version:1.0
 	text-align: center;
 	border-radius: 3px;
 	line-height: 40px;
-	background:#F7941D;
+	background: #c49a0c;
 }
 .contact-us .single-info ul
 .contact-us .single-info ul li{
@@ -4876,7 +4879,7 @@ Version:1.0
 	display: block;
 }
 .footer .about .call a {
-	color: #f7941d;
+	color: #c49a0c;
 	font-size: 20px;
 	font-weight: 600;
 }

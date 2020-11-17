@@ -18,8 +18,8 @@ class FrontendController extends Controller
         $brands = Brand::all();
         $slides = Slide::all();
         $blogs = Blog::all();
-    	return view('frontend.homepage.mainpage',compact('items', 'brands', 'slides', 'blogs'));
-    	// return view('frontend.homepage.mainpage');
+        $categories = Category::all();
+    	return view('frontend.homepage.mainpage',compact('items', 'brands', 'slides', 'blogs', 'categories'));
     }
 
     public function cart($value='')
@@ -28,16 +28,28 @@ class FrontendController extends Controller
         return view('frontend.cartpage');
     }
 
+    public function itemsbysubcategory($id)
+    {
+        $mysubcategory = Subcategory::find($id);
+        return view('frontend.itemsbysubcategory', compact('mysubcategory'));
+    }
+
+    public function itemsbybrand($id)
+    {
+        $mybrand = Brand::find($id);
+        return view('frontend.itemsbybrand', compact('mybrand'));
+    }
+
     public function brands($value='')
     {
     	$brands = Brand::all();
-        return view('frontend.itembybrand', compact('brands'));
+        return view('frontend.brands', compact('brands'));
     }
 
-    public function review($value='')
-    {
-        return view('frontend.review');
-    }
+    // public function review($value='')
+    // {
+    //     return view('frontend.feedback');
+    // }
 
     public function contact($value='')
     {
@@ -57,6 +69,11 @@ class FrontendController extends Controller
         return view('frontend.blogdetail',compact('blogdetail'));
     }
 
+    public function blogs()
+    {
+        $blogs = Blog::all();
+        return view('frontend.blogs',compact('blogs'));
+    }
 
     //signin signup
 

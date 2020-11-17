@@ -76,7 +76,7 @@
 											<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 										</div>
 										<div class="product-action-2">
-											<a title="Add to cart" class="addtocartBtn text-decoration-none btn btn-warning" data-photo="{{$item->photo}}" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-sku="{{$item->codeno}}" data-discount="{{$item->discount}}">Add To Cart</a>
+											<a title="Add to cart" class="addtocartBtn text-decoration-none btn btn-warning" data-photo="{{$item->photo}}" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-sku="{{$item->sku}}" data-discount="{{$item->discount}}">Add To Cart</a>
 										</div>
 									</div>
 								</div>
@@ -108,6 +108,23 @@
         </div>
     </div>
 	<!-- End Most Popular Area -->
+
+		<!-- Start Discount Item -->
+	{{-- <div class="product-area most-popular section">
+        <div class="container">
+            <div class="row">
+				<div class="col-12">
+					<div class="section-title">
+						<h2>Discount Item</h2>
+					</div>
+				</div>
+            </div>
+
+            --}}
+
+        </div>
+    </div>
+	<!-- End Discount Item Area -->
 	
 	
 @include('frontend.homepage.home-blog')
@@ -318,5 +335,5 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript" src="{{asset('my_asset/custom.js')}}"></script>
+    <script type="text/javascript" src="{{asset('../my_asset/custom.js')}}"></script>
 @endsection

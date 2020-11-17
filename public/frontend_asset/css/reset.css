@@ -231,7 +231,7 @@ big {
 }
 
 .section {
-	padding: 60px 0;
+	padding: 40px 0;
 	position: relative;
 }
 .section-title {
@@ -252,9 +252,9 @@ big {
 .section-title h2::before {
 	position: absolute;
 	content: "";
-	height: 2px;
+	height: 3px;
 	width: 50px;
-	background: #F7941D;
+	background: #c49a0c;
 	left: 50%;
 	bottom: 0;
 	margin-left: -25px;

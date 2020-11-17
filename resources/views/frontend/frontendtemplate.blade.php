@@ -81,9 +81,39 @@
 						<div class="right-content">
 							<ul class="list-main">
 								<li><i class="ti-location-pin"></i> Store location</li>
-								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
-								<li><i class="ti-user"></i> <a href="#">My account</a></li>
-								<li><i class="ti-power-off"></i><a href="{{route('signinpage')}}">Login</a></li>
+								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a>
+
+
+								@auth
+								<li class="nav-item dropdown">
+					              <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+					                  {{ Auth::user()->name }}
+					              </a>
+
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+					                  <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+					                     onclick="event.preventDefault();
+					                                   document.getElementById('logout-form').submit();">
+					                      {{ __('Logout') }}
+					                  </a>
+
+					                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+					                      @csrf
+					                  </form>
+					              </div>
+
+								</li>
+
+								
+
+								@else
+
+								<li>{{-- <i class="ti-user"></i> --}} <a href="{{route('signinpage')}}">Sign In</a></li>
+								<li>{{-- <i class="ti-user"></i> --}} <a href="{{route('signuppage')}}">Sign Up</a></li>
+								{{-- <li><i class="ti-power-off"></i><a href="{{route('signinpage')}}">Login</a></li> --}}
+
+								@endauth
+
 							</ul>
 						</div>
 						<!-- End Top Right -->
@@ -95,10 +125,10 @@
 		<div class="middle-inner">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-2 col-md-2 col-12">
+					<div class="col-lg-3 col-md-3 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><img src="{{asset('../frontend_asset/images/logo.png')}}" alt="logo"></a>
+							<a href="index.html"><img src="{{asset('../frontend_asset/images/top_logo.png')}}" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
@@ -116,22 +146,22 @@
 						<!--/ End Search Form -->
 						<div class="mobile-nav"></div>
 					</div>
-					<div class="col-lg-8 col-md-7 col-12">
+					<div class="col-lg-6 col-md-6 col-12">
 						<div class="search-bar-top">
 							<div class="search-bar">
-								<select>
+{{-- 								<select>
 									<option selected="selected">All Category</option>
 									<option>watch</option>
 									<option>mobile</option>
 									<option>kid’s item</option>
 
-									{{-- @foreach($category->subcategories as $subcategory)
+									@foreach ($categories as $category)
 										<option>
-											{{$subcategory->name}}
+											{{$category->name}}
 										</option>
-									@endforeach --}}
+									@endforeach
 
-								</select>
+								</select> --}}
 								<form>
 									<input name="search" placeholder="Search Products Here....." type="search">
 									<button class="btnn"><i class="ti-search"></i></button>
@@ -139,7 +169,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-2 col-md-3 col-12">
+					<div class="col-lg-2 col-md-2 col-12">
 						<div class="right-bar">
 							<!-- Search Form -->
 							<div class="sinlge-bar">
@@ -150,35 +180,6 @@
 							</div>
 							<div class="sinlge-bar shopping">
 								<a href="{{route('cartpage')}}" class="single-icon"><i class="ti-bag"></i> <span class="total-count" id="cart">0</span></a>
-								<!-- Shopping Item -->
-								{{-- <div class="shopping-item">
-									<div class="dropdown-cart-header">
-										<span>2 Items</span>
-										<a href="#">View Cart</a>
-									</div>
-									<ul class="shopping-list">
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Ring</a></h4>
-											<p class="quantity">1x - <span class="amount">$99.00</span></p>
-										</li>
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Necklace</a></h4>
-											<p class="quantity">1x - <span class="amount">$35.00</span></p>
-										</li>
-									</ul>
-									<div class="bottom">
-										<div class="total">
-											<span>Total</span>
-											<span class="total-amount">$134.00</span>
-										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
-									</div>
-								</div> --}}
-								<!--/ End Shopping Item -->
 							</div>
 						</div>
 					</div>
@@ -193,7 +194,73 @@
 
 {{-- @include('frontend.navbar-category') --}}
 
-@include('frontend.menu')
+						<div class="col-lg-12 col-12">
+							<div class="menu-area">
+								<!-- Main Menu -->
+								<nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">	
+										<div class="nav-inner">	
+											<ul class="nav main-menu menu navbar-nav">
+													<li class="active"><a href="{{route('mainpage')}}">Home</a></li>
+													<li><a href="#">Product<i class="ti-angle-down"></i></a>
+
+													
+													<ul class="dropdown main-category">
+													  @foreach ($data[0] as $category)
+														<li><a href="#">
+															{{$category->name}}</a>
+															{{-- <i class="fa fa-angle-right" aria-hidden="true"></i> --}}
+														</li>
+															{{-- <ul class="sub-category"> --}}
+															@foreach($category->subcategories as $subcategory)
+															
+													        <li class="nav-item ">
+													          <a class="btn btn-link subcategory" href="{{route('itemsbysubcategory',$subcategory->id)}}" data-id="{{$subcategory->id}}">{{$subcategory->name}}</a>
+													        </li>
+													    	
+													        @endforeach
+													        {{-- </ul> --}}
+
+													  @endforeach
+													</ul>
+													
+
+														{{-- @foreach ($categories as $category)
+															<option>
+																{{$category->name}}
+															</option>
+														@endforeach --}}
+
+													<li><a href="{{route('brandpage')}}">Brands</a></li>
+													
+													{{-- <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
+														<ul class="dropdown">
+															<li><a href="shop-grid.html">Shop Grid</a></li>
+															<li><a href="cart.html">Cart</a></li>
+															<li><a href="checkout.html">Checkout</a></li>
+														</ul>
+													</li>
+													<li><a href="#">Pages</a></li> --}}									
+													<li><a href="{{route('blogpage')}}">Blog</a>
+														{{-- <ul class="dropdown">
+															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
+														</ul> --}}
+													</li>
+
+													@role('customer')
+													<li><a href="{{route('reviews')}}">Your Feedback</a></li>
+													@else
+													@endrole
+
+													<li><a href="{{route('contact')}}">Contact Us</a></li>
+												</ul>
+										</div>
+									</div>
+								</nav>
+								<!--/ End Main Menu -->	
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -215,7 +282,7 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="index.html"><img src="{{asset('../frontend_asset/images/logo2.png')}}" alt="#"></a>
+								<a href="index.html"><img src="{{asset('../frontend_asset/images/top_logo.png')}}" alt="#"></a>
 							</div>
 							<p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue,  magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
 							<p class="call">Got Question? Call us 24/7<span><a href="tel:01505050">01 505050</a></span></p>
@@ -316,5 +383,10 @@
 	<script src="{{asset('../frontend_asset/js/easing.js')}}"></script>
 	<!-- Active JS -->
 	<script src="{{asset('../frontend_asset/js/active.js')}}"></script>
+
+@yield('script')
+
 </body>
 </html>
+
+
