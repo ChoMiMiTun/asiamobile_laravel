@@ -4,9 +4,13 @@
 
 @section('content')
 
+<<<<<<< HEAD
 {{-- <x-menu-component></x-menu-component> --}}
 
 {{-- <!-- Breadcrumbs -->
+=======
+	{{-- <!-- Breadcrumbs -->
+>>>>>>> 362b42759918e39d01e17a5fb98c90f90d167cc6
 	<div class="breadcrumbs">
 		<div class="container">
 			<div class="row">
@@ -219,6 +223,15 @@
 @section('script')
     <script type="text/javascript" src="{{asset('my_asset/custom.js')}}"></script>
 
+
+   {{--  <script>
+    	$(document).ready(function() {
+    		$('.checkout').click(function() {
+    			alert("OK");
+    		})
+    	})
+    </script> --}}
+
     <script type="text/javascript">
       $.ajaxSetup({
           headers: {
@@ -231,7 +244,10 @@
           let notes = $('.notes').val();
           let order = localStorage.getItem('items'); // JSON String
           $.post("{{route('order.store')}}",{order:order,notes:notes},function (response) {
-            console.log(response.msg);
+            alert(response.msg);
+            localStorage.clear();
+            location.reload();
+            location.href="/";
           })
         })
       })

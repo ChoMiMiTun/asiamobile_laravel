@@ -43,6 +43,9 @@
 	<link rel="stylesheet" href="{{asset('../frontend_asset/style.css')}}">
     <link rel="stylesheet" href="{{asset('../frontend_asset/css/responsive.css')}}">
 
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
 	
 	
 </head>
@@ -384,8 +387,13 @@
 	<!-- Active JS -->
 	<script src="{{asset('../frontend_asset/js/active.js')}}"></script>
 
+<<<<<<< HEAD
 @yield('script')
 
+=======
+	@yield('script')
+	
+>>>>>>> 362b42759918e39d01e17a5fb98c90f90d167cc6
 </body>
 </html>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -37,32 +38,34 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-            // data store
+          // dd($request)
+
+        // validation
+
+        // data store
         $myorder = json_decode($request->order);
         $notes = $request->notes;
         $orderdate = date('Y-m-d');
         $totalamount = 0;
-        foreach ($myorder as $order) {
-            $totalamount += $order->price*$order->qty;
+        foreach ($myorder as $row) {
+            $totalamount += $row->price*$row->qty;
         }
         $order = new Order;
-        $order->orderno = time();
+        $order->orderno = uniqid();
         $order->orderdate = $orderdate;
         $order->totalamount = $totalamount;
         $order->notes = $notes;
         $order->user_id = Auth::id(); // current logined user_id
         $order->save();
-        /*  [
-                {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
-                {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
-            ]
-        */
+
         foreach ($myorder as $row) { 
             $order->items()->attach($row->id,['quantity'=>$row->qty]);
         }
 
-        return response()
-            ->json(['msg' => 'Successful You Order!']);
+            // return "Successful You Order!";
+
+         return response()
+             ->json(['msg' => 'Successful You Order!']);
     }
 
     /**
@@ -73,7 +76,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('order.show', compact('order'));
+        return view('order.show',compact('order'));
     }
 
     /**
@@ -110,12 +113,15 @@ class OrderController extends Controller
         //
     }
 
-    public function confirm($id)
+     public function confirm($id)
     {
         $order = Order::find($id);
         $order->status = 1;
         $order->save();
         return back();
     }
-
+    public function cancel($id)
+    {
+        
+    }
 }

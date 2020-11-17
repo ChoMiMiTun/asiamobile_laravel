@@ -34,6 +34,9 @@ Route::middleware('role:admin')->group(function () {
 
   });
 
+  Route::resource('order', 'OrderController');
+
+
   // Frontend with items
  
 Route::get('/', 'FrontendController@home')->name('mainpage');
@@ -52,6 +55,7 @@ Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail
 Route::get('itemsbysubcategory/{id}', 'FrontendController@itemsbysubcategory')->name('itemsbysubcategory');
 Route::get('itemsbybrand/{id}', 'FrontendController@itemsbybrand')->name('itemsbybrand');
 Route::get('/blogs', 'FrontendController@blogs')->name('blogpage');
+
 
 
 

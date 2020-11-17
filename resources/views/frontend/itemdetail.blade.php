@@ -61,12 +61,25 @@
 							</div>
 							<!--/ End Input Order -->
 						</div>
+<<<<<<< HEAD
 							<button class="btn btn-success addtocartBtn"
 			                data-id="{{ $item->id }}"
 							data-name="{{ $item->name}} "
 							data-photo="{{ $item->photo }}"
 							data-price="{{ $item->price }}"
 							>Add To Cart</button>
+=======
+						{{-- <div class="add-to-cart">
+							<a href="" class="btn addtocartBtn data-id={{$item->id}}">Add to cart</a>
+						</div> --}}
+
+						<button class="btn btn-success addtocartBtn"
+                data-id="{{ $item->id }}"
+				data-name="{{ $item->name}} "
+				data-photo="{{ $item->photo }}"
+				data-price="{{ $item->price }}"
+				>Add To Cart</button>
+>>>>>>> 362b42759918e39d01e17a5fb98c90f90d167cc6
 						</div>
 
 					</div>
@@ -74,11 +87,6 @@
 				</div>
 			</div>
 
-{{-- 			<div class="row">
-				<div class="col-md-12">
-
-				</div>
-			</div> --}}
 		</div>
 	</section>
 
@@ -91,6 +99,10 @@
     {{-- <script>
     	$(document).ready(function() {
         $('.addtocartBtn').click(function() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 362b42759918e39d01e17a5fb98c90f90d167cc6
         	alert("OK");
     
         })
