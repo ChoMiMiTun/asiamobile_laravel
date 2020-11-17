@@ -314,9 +314,7 @@ $(document).ready(function(){
 						html += `
 								<tr>
 									<td>
-										<button class="btn btn-outline-danger remove btn-sm" data-id="${i}"> 
-											<i class="fas fa-times"></i> 
-										</button> 
+										${n++}
 									</td>
 									<td> 
 										<img src="${v.photo}" class="img-fluid rounded" width="150px" style="border:1px solid #ccc">						
@@ -333,6 +331,7 @@ $(document).ready(function(){
 											<i class="fa fa-minus"></i>
 										</button>
 									</td>
+									
 									<td>
 										<p class="text-danger"> 
 											${v.price} Ks
@@ -342,6 +341,11 @@ $(document).ready(function(){
 									</td>
 									<td>
 										${subTotal} Ks
+									</td>
+									<td>
+										<button class="btn btn-info remove btn-sm"> 
+											<i class="fas fa-times  fa-spin"></i>
+										</button> 
 									</td>
 								</tr>
 

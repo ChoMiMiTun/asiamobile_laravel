@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Route;
   Route::resource('blog', 'BlogController');
   Route::resource('slide', 'SlideController');
 
+  Route::resource('order', 'OrderController');
+
+
   // Frontend with items
   
 Route::get('/', 'FrontendController@home')->name('mainpage');
@@ -35,6 +38,7 @@ Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/blogdetail/{id}', 'FrontendController@blogdetail')->name('blogdetail');
 Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
 // Route::get('/bolg', 'FrontendController@blog')->name('blogpage');
+
 
 Route::get('cart', 'FrontendController@cart')->name('cartpage');
 
