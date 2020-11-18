@@ -49,8 +49,9 @@
                 @foreach($reviews as $review)
                 <tr>
                   <td>{{$i++}}</td>
+                  
+                  <td>{{$review->user_id}}</td>
                   <td>{{$review->feedback}}</td>
-                  <td>{{$review->user->name}}</td>
                   <td>{{$review->created_at->format('d-m-Y')}}</td>
                   <td>{{$review->updated_at->format('d-m-Y')}}</td>
                   <td>

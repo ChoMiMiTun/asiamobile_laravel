@@ -28,7 +28,7 @@ Route::middleware('role:admin')->group(function () {
   Route::resource('blog', 'BlogController');
   Route::resource('slide', 'SlideController');
   Route::post('review', 'ReviewContorller@store')->name('feedback');
-  Route::get('customerreviews', 'ReviewController@index')->name('reviews');
+  Route::get('customerreviews', 'ReviewController@index')->name('customerreviews');
   Route::get('customerreviews/{id}', 'ReviewController@show')->name('reviews.show');
   Route::resource('order', 'OrderController');
 

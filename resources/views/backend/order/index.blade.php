@@ -70,7 +70,7 @@
                     <td>{{$row->user->name}}</td>
                     <td>
                       <a href="{{route('order.show',$row->id)}}" class="btn btn-primary">Detail</a>
-                      <a href="#" class="btn btn-danger">Cancel</a>
+                      {{-- <a href="#" class="btn btn-danger">Cancel</a> --}}
 
                     </td>
                   </tr>

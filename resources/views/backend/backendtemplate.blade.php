@@ -125,10 +125,10 @@
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="#" style="padding-left: 0;padding-right: 0;">
           <i class="far fa-user-circle fa-lg"></i>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        {{-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">15 Notifications</span>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
@@ -147,7 +147,30 @@
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
+        </div> --}}
+
+        @auth
+          <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="padding-left: 0;">
+                      {{ Auth::user()->name }}
+                  </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </div>
+          </li>
+          @else
+          {{-- <li><a href="{{route('signinpage')}}">Sign In</a></li>
+          <li><a href="{{route('signuppage')}}">Sign Up</a></li> --}}
+        @endauth
+
       </li>
 
     </ul>
@@ -157,7 +180,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
       <img src="{{asset('../backend_asset/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
@@ -171,7 +194,7 @@
           <img src="{{asset('../backend_asset/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -246,21 +269,21 @@
           </li>
 
          <li class="nav-item">
-            <a href="#" class="nav-link {{ Route::currentRouteNamed( 'blog*' ) ?  'active' : '' }}">
+            <a href="{{route('blog.index')}}" class="nav-link {{ Route::currentRouteNamed( 'blog*' ) ?  'active' : '' }}">
               <i class="fas fa-edit sm"></i>
               <p> Blogs </p>
             </a>
           </li>
 
          <li class="nav-item">
-            <a href="#" class="nav-link {{ Route::currentRouteNamed( 'review*' ) ?  'active' : '' }}">
+            <a href="{{route('customerreviews')}}" class="nav-link {{ Route::currentRouteNamed( 'review*' ) ?  'active' : '' }}">
               <i class="fas fa-star-half-alt"></i>
               <p> Reviews </p>
             </a>
           </li>
 
          <li class="nav-item">
-            <a href="#" class="nav-link {{ Route::currentRouteNamed( 'order*' ) ?  'active' : '' }}">
+            <a href="{{route('order.index')}}" class="nav-link {{ Route::currentRouteNamed( 'order*' ) ?  'active' : '' }}">
               <i class="fas fa-atlas sm"></i>
               <p> Orders </p>
             </a>

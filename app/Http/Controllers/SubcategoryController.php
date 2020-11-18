@@ -46,7 +46,7 @@ class SubcategoryController extends Controller
 
          $request->validate([
 
-            "name"=>"required|min:4",
+            "name"=>"required|min:2",
            "category_id"=>"required"
 
        ]);
@@ -101,7 +101,7 @@ class SubcategoryController extends Controller
 
          $request->validate([
 
-            "name"=>"required|min:5",
+            "name"=>"required|min:2",
            "category_id"=>"required"
 
        ]);

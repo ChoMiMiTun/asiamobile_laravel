@@ -56,7 +56,7 @@ class ReviewController extends Controller
           $review->save();
 
          // redirect
-           return redirect()->route('frontend.homepage.mainpage');
+           return redirect()->route('mainpage');
     }
 
     /**

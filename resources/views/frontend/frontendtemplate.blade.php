@@ -86,13 +86,11 @@
 								<li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a>
 
-
 								@auth
 								<li class="nav-item dropdown">
 					              <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 					                  {{ Auth::user()->name }}
 					              </a>
-
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 					                  <a class="dropdown-item text-dark" href="{{ route('logout') }}"
 					                     onclick="event.preventDefault();
@@ -104,19 +102,13 @@
 					                      @csrf
 					                  </form>
 					              </div>
-
 								</li>
-
-								
-
 								@else
-
 								<li>{{-- <i class="ti-user"></i> --}} <a href="{{route('signinpage')}}">Sign In</a></li>
 								<li>{{-- <i class="ti-user"></i> --}} <a href="{{route('signuppage')}}">Sign Up</a></li>
 								{{-- <li><i class="ti-power-off"></i><a href="{{route('signinpage')}}">Login</a></li> --}}
-
 								@endauth
-
+								
 							</ul>
 						</div>
 						<!-- End Top Right -->
