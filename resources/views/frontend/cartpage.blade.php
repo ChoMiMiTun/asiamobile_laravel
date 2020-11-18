@@ -4,16 +4,9 @@
 
 @section('content')
 
-
-	 <div class="container">
-
+<div class="container">
     <h2 class="text-center mt-5" style="color:#c49a0c">Shopping Cart</h2>
-
-
-
     <div class="row my-5">
-
-      
       <table class="table">
           <thead>
             <tr>
@@ -36,8 +29,6 @@
             </tr>
             <tr> 
               <td colspan="5"> 
-
-               
                 <textarea class="form-control notes" id="notes" placeholder="Any Request..." required=""></textarea>
               </td>
               <td colspan="3">
@@ -58,7 +49,7 @@
     </div>
     <!-- /.row -->
 
-  </div>
+</div>
 
 @endsection
 

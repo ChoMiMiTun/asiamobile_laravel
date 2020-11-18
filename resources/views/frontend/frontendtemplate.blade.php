@@ -134,20 +134,36 @@
 							<a href="index.html"><img src="{{asset('../frontend_asset/images/top_logo.png')}}" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
+
+
+
 						<!-- Search Form -->
 						<div class="search-top">
 							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
 							<div class="search-top">
+
 								<form class="search-form" action="{{route('search')}}" method="GET">
 									@csrf
 									<input type="text" placeholder="Search here..." name="query" value="{{ request()->input('query') }}" id="query">
+
+
+								{{-- <form class="search-form" method="GET" action="{{url('/search')}}">
+									@csrf
+									<input type="text" placeholder="Search here..." name="search"> --}}
+
+
 									<button value="search" type="submit"><i class="ti-search"></i></button>
 								</form>
+
 							</div>
 							<!--/ End Search Form -->
 						</div>
 						<!--/ End Search Form -->
+
+
+
+
 						<div class="mobile-nav"></div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-12">
@@ -387,6 +403,7 @@
 @yield('script')
 
 
+<<<<<<< HEAD
 <script>
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){
@@ -397,6 +414,8 @@ $(document).ready(function(){
 });
 </script>
 
+=======
+>>>>>>> 85c52427b230ce85c7bf2bcf99d4908813d31309
 </body>
 </html>
 

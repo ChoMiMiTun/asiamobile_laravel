@@ -1,7 +1,4 @@
 
-// // alert("ok");
-
-
 
 $(document).ready(function(){
 

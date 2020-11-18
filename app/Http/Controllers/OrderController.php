@@ -5,19 +5,26 @@ namespace App\Http\Controllers;
 use App\Order;
 use Illuminate\Http\Request;
 use Auth;
+Use Alert;
 
 class OrderController extends Controller
 {
+    public function __construct($value='')
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
+
         $pending_orders = Order::where('status',0)->get();
         $confirmed_orders = Order::where('status',1)->get();
-        return view('order.index',compact('pending_orders','confirmed_orders'));
+        return view('backend.order.index',compact('pending_orders','confirmed_orders'));
     }
 
     /**
@@ -38,7 +45,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-          // dd($request)
+        // dd($request);
 
         // validation
 
@@ -57,15 +64,23 @@ class OrderController extends Controller
         $order->notes = $notes;
         $order->user_id = Auth::id(); // current logined user_id
         $order->save();
-
+        /*  [
+                {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
+                {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
+            ]
+        */
         foreach ($myorder as $row) { 
             $order->items()->attach($row->id,['quantity'=>$row->qty]);
         }
 
-            // return "Successful You Order!";
+        Alert::success(Auth::user()->name, 'Order Successfully Completed!');
 
-         return response()
-             ->json(['msg' => 'Successful You Order!']);
+        // ajax response
+        // return response()
+        //     ->json(['msg' => 'Successful You Order!']);
+
+        // form response
+        return redirect()->route('mainpage');
     }
 
     /**
@@ -76,7 +91,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('order.show',compact('order'));
+        return view('backend.order.show',compact('order'));
     }
 
     /**
@@ -113,15 +128,11 @@ class OrderController extends Controller
         //
     }
 
-     public function confirm($id)
+    public function confirm($id)
     {
         $order = Order::find($id);
         $order->status = 1;
         $order->save();
         return back();
-    }
-    public function cancel($id)
-    {
-        
     }
 }
