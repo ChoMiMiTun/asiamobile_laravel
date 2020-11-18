@@ -14,15 +14,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-<<<<<<< HEAD
         "laravel/ui": "2.4",
-
-=======
-
-        "laravel/ui": "2.4",
-
-
->>>>>>> 362b42759918e39d01e17a5fb98c90f90d167cc6
         "spatie/laravel-permission": "^3.17"
     },
     "require-dev": {

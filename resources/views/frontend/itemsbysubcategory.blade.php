@@ -60,7 +60,7 @@
 						</div>
 						<div class="row">
 
-							@foreach($mybrand->items as $item)
+							@foreach($mysubcategory->items as $item)
 								<div class="col-lg-4 col-md-6 col-12">
 									<div class="single-product">
 										<div class="product-img">

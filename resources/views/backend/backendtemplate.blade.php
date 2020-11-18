@@ -237,35 +237,36 @@
 
          <li class="nav-item">
             <a href="{{route('item.index')}}" class="nav-link {{ Route::currentRouteNamed( 'item*' ) ?  'active' : '' }}">
-              <i class="fab fa-dropbox"></i>
+              <i class="fab fa-dropbox fa-sm"></i>
               <p> Items </p>
             </a>
           </li>
 
          <li class="nav-item">
-            <a href="{{route('category.index')}}" class="nav-link {{ Route::currentRouteNamed( 'category*' ) ?  'active' : '' }}">
-              <i class="nav-icon fas fa-th"></i>
+            <a href="{{route('slide.index')}}" class="nav-link {{ Route::currentRouteNamed( 'slide*' ) ?  'active' : '' }}">
+              {{-- <i class="nav-icon fas fa-th"></i> --}}
+              <i class="far fa-copy 1x"></i>
               <p> Sliders </p>
             </a>
           </li>
 
          <li class="nav-item">
             <a href="#" class="nav-link {{ Route::currentRouteNamed( 'blog*' ) ?  'active' : '' }}">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-edit sm"></i>
               <p> Blogs </p>
             </a>
           </li>
 
          <li class="nav-item">
             <a href="#" class="nav-link {{ Route::currentRouteNamed( 'review*' ) ?  'active' : '' }}">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-star-half-alt"></i>
               <p> Reviews </p>
             </a>
           </li>
 
          <li class="nav-item">
             <a href="#" class="nav-link {{ Route::currentRouteNamed( 'order*' ) ?  'active' : '' }}">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-atlas sm"></i>
               <p> Orders </p>
             </a>
           </li>
