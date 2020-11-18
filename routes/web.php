@@ -27,10 +27,10 @@ Route::middleware('role:admin')->group(function () {
   Route::resource('item', 'ItemController');
   Route::resource('blog', 'BlogController');
   Route::resource('slide', 'SlideController');
- Route::post('review', 'ReviewContorller@store')->name('feedback');
- Route::get('customerreviews', 'ReviewController@index')->name('reviews');
- Route::get('customerreviews/{id}', 'ReviewController@show')->name('reviews.show');
- Route::resource('order', 'OrderController');
+  Route::post('review', 'ReviewContorller@store')->name('feedback');
+  Route::get('customerreviews', 'ReviewController@index')->name('reviews');
+  Route::get('customerreviews/{id}', 'ReviewController@show')->name('reviews.show');
+  Route::resource('order', 'OrderController');
 
   });
 
@@ -45,6 +45,12 @@ Route::get('/', 'FrontendController@home')->name('mainpage');
 Route::get('reviews', 'ReviewController@reviews')->name('reviews');
 
 Route::post('reviews', 'ReviewController@store')->name('reviews.review');
+
+
+
+// Order Process
+
+Route::post('confirm/{id}', 'OrderController@confirm')->name('order.confirm');
 
 
 
@@ -74,4 +80,12 @@ Route::get('signin', 'FrontendController@signin')->name('signinpage');
 Route::get('signup', 'FrontendController@signup')->name('signuppage');
 
 Route::resource('user', 'UserController');
+
+
+
+// Search Bar
+
+Route::get('/search','FrontendController@search');
+
+
 

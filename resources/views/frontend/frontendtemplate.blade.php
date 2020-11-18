@@ -134,19 +134,30 @@
 							<a href="index.html"><img src="{{asset('../frontend_asset/images/top_logo.png')}}" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
+
+
+
 						<!-- Search Form -->
 						<div class="search-top">
 							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
 							<div class="search-top">
-								<form class="search-form">
+
+								<form class="search-form" method="GET" action="{{url('/search')}}">
+									@csrf
 									<input type="text" placeholder="Search here..." name="search">
+
 									<button value="search" type="submit"><i class="ti-search"></i></button>
 								</form>
+
 							</div>
 							<!--/ End Search Form -->
 						</div>
 						<!--/ End Search Form -->
+
+
+
+
 						<div class="mobile-nav"></div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-12">
@@ -387,13 +398,10 @@
 	<!-- Active JS -->
 	<script src="{{asset('../frontend_asset/js/active.js')}}"></script>
 
-<<<<<<< HEAD
+
 @yield('script')
 
-=======
-	@yield('script')
-	
->>>>>>> 362b42759918e39d01e17a5fb98c90f90d167cc6
+
 </body>
 </html>
 

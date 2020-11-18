@@ -4,7 +4,7 @@
 
 @section('content')
 
-<<<<<<< HEAD
+
 {{-- <x-menu-component></x-menu-component> --}}
 
 {{-- <!-- Breadcrumbs -->

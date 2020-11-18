@@ -30,7 +30,12 @@
             <div class="card">
               <div class="card-header">
                 <h3>Blogs</h3>
+
                 <a href="{{route('blog.create')}}" class="btn btn-success float-right">Add New</a>
+
+                
+              </div>
+      
               </div>
               <!-- /.card-header -->
               <div class="card-body">
