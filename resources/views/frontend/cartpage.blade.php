@@ -7,7 +7,7 @@
 
 	 <div class="container">
 
-    <h2 class="text-center text-info mt-5">Shopping Cart</h2>
+    <h2 class="text-center mt-5" style="color:#c49a0c">Shopping Cart</h2>
 
 
 
@@ -23,6 +23,7 @@
               <th> Qty </th>
               <th> Price </th>
               <th> Total </th>
+              <th>  </th>
             </tr>
           </thead>
           <tbody id="shoppingcart_table">

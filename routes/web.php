@@ -31,10 +31,7 @@ Route::middleware('role:admin')->group(function () {
  Route::get('customerreviews', 'ReviewController@index')->name('reviews');
  Route::get('customerreviews/{id}', 'ReviewController@show')->name('reviews.show');
  Route::resource('order', 'OrderController');
-
   });
-
-  Route::resource('order', 'OrderController');
 
 
   // Frontend with items
@@ -43,11 +40,7 @@ Route::get('/', 'FrontendController@home')->name('mainpage');
 // Route::get('review', 'FrontendController@review')->name('review');
 
 Route::get('reviews', 'ReviewController@reviews')->name('reviews');
-
 Route::post('reviews', 'ReviewController@store')->name('reviews.review');
-
-
-
 Route::get('/brands', 'FrontendController@brands')->name('brandpage');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/blogdetail/{id}', 'FrontendController@blogdetail')->name('blogdetail');
@@ -56,8 +49,7 @@ Route::get('itemsbysubcategory/{id}', 'FrontendController@itemsbysubcategory')->
 Route::get('itemsbybrand/{id}', 'FrontendController@itemsbybrand')->name('itemsbybrand');
 Route::get('/blogs', 'FrontendController@blogs')->name('blogpage');
 
-
-
+Route::get('/search', 'FrontendController@search')->name('search');
 
 Route::get('cart', 'FrontendController@cart')->name('cartpage');
 

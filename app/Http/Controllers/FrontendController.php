@@ -87,4 +87,20 @@ class FrontendController extends Controller
         return view('frontend.signuppage');
     }
 
+    public function search(Request $request)
+    {
+        // $searchData = $request->search;
+        // dd($searchData);
+
+        // $items = Item::where('name', 'like', "%".$searchData."%");
+        // $brands = Brand::all();
+        // $slides = Slide::all();
+        // $blogs = Blog::all();
+        // $categories = Category::all();
+        // return view('frontend.search-result',compact('items', 'brands', 'slides', 'blogs', 'categories'));
+
+return view('frontend.search-result');
+    }
+
+
 }

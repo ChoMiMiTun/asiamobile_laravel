@@ -4,38 +4,36 @@
 
 @section('content')
 
-	<!-- Slider Area -->
-	<section class="hero-slider">
-		<!-- Single Slider -->
-		<div class="single-slider">
 
-			@foreach($slides as $slide)
-			<img src="{{asset($slide->photo)}}">
-			@endforeach
 
-			<div class="container">
-				<div class="row no-gutters">
-					<div class="col-lg-9 offset-lg-3 col-12">
-						<div class="text-inner">
-							<div class="row">
-								<div class="col-lg-7 col-12">
-									<div class="hero-text">
-										<h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
-										<p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
-										<div class="button">
-											<a href="#" class="btn">Shop Now!</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/ End Single Slider -->
-	</section>
-	<!--/ End Slider Area -->
+	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+	  <ol class="carousel-indicators">
+	   @foreach( $slides as $slide )
+	      <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+	   @endforeach
+	  </ol>
+
+	  <div class="carousel-inner" role="listbox">
+	    @foreach( $slides as $slide )
+	       <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+	           <img class="d-block img-fluid" src="{{asset($slide->photo)}}" alt="">
+	              <div class="carousel-caption d-none d-md-block">
+	                 {{-- <h3>{{ $slide->title }}</h3> --}}
+	                 <p>{!!$slide->description!!}</p>
+	              </div>
+	       </div>
+	    @endforeach
+	  </div>
+	  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
 
 	
 {{-- @include('frontend.home-trendingitem') --}}
@@ -57,7 +55,7 @@
 						<!-- Start Single Product -->
 
 						@foreach($items as $item)
-							@if($item->status == 1)
+							{{-- @if($item->status == 1) --}}
 								<div class="single-product">
 								<div class="product-img">
 									<a href="{{route('itemdetail', $item->id)}}">
@@ -71,7 +69,13 @@
 									</a>
 									<div class="button-head">
 										<div class="product-action">
-											<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+											<a {{-- data-toggle="modal" data-target="#exampleModal" --}} title="" href="#"><i class=" ti-eye"></i>
+												@if($item->status == 1)
+												<span>In Stock</span>
+												@else
+												<span>Out of Stock</span>
+												@endif
+											</a>
 											<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
 											<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 										</div>
@@ -96,7 +100,7 @@
 									</div>
 								</div>
 							</div>
-							@endif
+							{{-- @endif --}}
 						@endforeach
 
 						<!-- End Single Product -->
@@ -209,7 +213,9 @@
 			      </div>
 			      @foreach($brands as $brand)
 			      <div class="col-md-2 my-4">
+			        <a href="{{route('itemsbybrand',$brand->id)}}">
 			        <img src="{{asset($brand->photo)}}" alt="" class="img-fluid brandimg">
+			        </a>
 			      </div>
 			      @endforeach
 			    </div>
@@ -224,7 +230,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
                     </div>
-                    <div class="modal-body">
+                   {{--  <div class="modal-body">
                         <div class="row no-gutters">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                 <!-- Product Slider -->
@@ -324,7 +330,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 

@@ -49,13 +49,35 @@
                       </div>
                     </div>
 
- 
-
                     <div class="form-group row">
                         <label for="description" class="col-md-2 col-form-label"> Description </label>
                         <div class="col-md-9">
                           <textarea rows="6" class="form-control textarea" id="description"  name="description" placeholder="Slider Description...">{{old('description')}}</textarea>
                         </div>
+                    </div>
+
+                    <div class="form-group row py-2">
+                      <label class="control-label col-md-2">Start Date:</label>
+                      <div class="col-md-9">
+                        <input type="text" name="start" class="form-control @error('start') is-invalid @enderror">
+                         @error('start')
+                          <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="form-group row py-2">
+                      <label class="control-label col-md-2">End Date:</label>
+                      <div class="col-md-9">
+                        <input type="text" name="end" class="form-control @error('end') is-invalid @enderror">
+                         @error('end')
+                          <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                      </div>
                     </div>
 
                     <div class="form-group row py-2">
@@ -75,4 +97,7 @@
     <!-- /.content -->
   </div>
 
+
+
 @endsection
+

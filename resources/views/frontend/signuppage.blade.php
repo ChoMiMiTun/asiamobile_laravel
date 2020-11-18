@@ -9,7 +9,7 @@
 
       <div class="offset-3 col-md-6">
         <div class="card">
-            <div class="card-header bg-warning">
+            <div class="card-header bg-logocolor">
                 <h4>Sign Up</h4>
             </div>
             <div class="card-body">

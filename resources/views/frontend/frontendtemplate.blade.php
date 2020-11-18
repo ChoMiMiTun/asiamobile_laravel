@@ -139,8 +139,9 @@
 							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
 							<div class="search-top">
-								<form class="search-form">
-									<input type="text" placeholder="Search here..." name="search">
+								<form class="search-form" action="{{route('search')}}" method="GET">
+									@csrf
+									<input type="text" placeholder="Search here..." name="query" value="{{ request()->input('query') }}" id="query">
 									<button value="search" type="submit"><i class="ti-search"></i></button>
 								</form>
 							</div>
@@ -151,21 +152,8 @@
 					</div>
 					<div class="col-lg-6 col-md-6 col-12">
 						<div class="search-bar-top">
-							<div class="search-bar">
-{{-- 								<select>
-									<option selected="selected">All Category</option>
-									<option>watch</option>
-									<option>mobile</option>
-									<option>kid’s item</option>
-
-									@foreach ($categories as $category)
-										<option>
-											{{$category->name}}
-										</option>
-									@endforeach
-
-								</select> --}}
-								<form>
+							<div class="search-bar">						
+								<form action="{{route('search')}}" method="GET">
 									<input name="search" placeholder="Search Products Here....." type="search">
 									<button class="btnn"><i class="ti-search"></i></button>
 								</form>
@@ -205,34 +193,41 @@
 										<div class="nav-inner">	
 											<ul class="nav main-menu menu navbar-nav">
 													<li class="active"><a href="{{route('mainpage')}}">Home</a></li>
-													<li><a href="#">Product<i class="ti-angle-down"></i></a>
+													<li class="myul"><a href="#">Product<i class="ti-angle-down"></i></a>
 
-													
-													<ul class="dropdown main-category">
+														<ul class="main-category main-dropdown">
+															@foreach ($data[0] as $category)
+															<li><a href="#">{{$category->name}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+																<ul class="sub-category sub-drodown">
+																	@foreach($category->subcategories as $subcategory)
+																	<li><a href="{{route('itemsbysubcategory',$subcategory->id)}}">{{$subcategory->name}}</a></li>
+																	@endforeach
+																</ul>
+															</li>
+															@endforeach
+														</ul>
+
+													{{-- <ul class="dropdown main-category">
 													  @foreach ($data[0] as $category)
 														<li><a href="#">
 															{{$category->name}}</a>
-															{{-- <i class="fa fa-angle-right" aria-hidden="true"></i> --}}
+															<i class="fa fa-angle-right" aria-hidden="true"></i>
 														</li>
-															{{-- <ul class="sub-category"> --}}
-															@foreach($category->subcategories as $subcategory)
 															
+															@foreach($category->subcategories as $subcategory)
+															<ul class="">
 													        <li class="nav-item ">
 													          <a class="btn btn-link subcategory" href="{{route('itemsbysubcategory',$subcategory->id)}}" data-id="{{$subcategory->id}}">{{$subcategory->name}}</a>
 													        </li>
-													    	
+													    	</ul>
 													        @endforeach
-													        {{-- </ul> --}}
 
 													  @endforeach
-													</ul>
+													</ul> --}}
+
 													
 
-														{{-- @foreach ($categories as $category)
-															<option>
-																{{$category->name}}
-															</option>
-														@endforeach --}}
+														
 
 													<li><a href="{{route('brandpage')}}">Brands</a></li>
 													
@@ -360,10 +355,11 @@
 	<script src="{{asset('../frontend_asset/js/jquery-ui.min.js')}}"></script>
 	<!-- Popper JS -->
 	<script src="{{asset('../frontend_asset/js/popper.min.js')}}"></script>
+	<script src="{{asset('../frontend_asset/js/popper.min.js.map')}}"></script>
 	<!-- Bootstrap JS -->
 	<script src="{{asset('../frontend_asset/js/bootstrap.min.js')}}"></script>
 	<!-- Color JS -->
-	<script src="{{asset('../frontend_asset/js/colors.js')}}"></script>
+	{{-- <script src="{{asset('../frontend_asset/js/colors.js')}}"></script> --}}
 	<!-- Slicknav JS -->
 	<script src="{{asset('../frontend_asset/js/slicknav.min.js')}}"></script>
 	<!-- Owl Carousel JS -->
@@ -387,13 +383,20 @@
 	<!-- Active JS -->
 	<script src="{{asset('../frontend_asset/js/active.js')}}"></script>
 
-<<<<<<< HEAD
+
 @yield('script')
 
-=======
-	@yield('script')
-	
->>>>>>> 362b42759918e39d01e17a5fb98c90f90d167cc6
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+
 </body>
 </html>
 

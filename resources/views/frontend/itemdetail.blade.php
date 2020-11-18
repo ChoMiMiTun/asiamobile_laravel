@@ -32,11 +32,25 @@
 					<div class="item">
 						<h4>{{$item->name}}</h4><br><br>
 
+						@if($item->status == 1)
+							<div class="quickview-stock">
+	                            <p class="pb-3">
+	                            	<i class="fas fa-check-circle text-success"></i> <span style="font-size:16px;">In stock</span>
+	                        	</p>
+	                        </div>
+	                    @else
+							<div class="quickview-stock">
+	                            <p class="pb-3">
+	                            	<i class="fas fa-check-circle text-danger"></i> <span style="font-size:16px;">Out of stock</span>
+	                            </p>
+	                        </div>
+	                    @endif
+
 						@if($item->discount)
-						<h6><strong>Price:</strong> <span class="text-warning">{{number_format($item->discount)}} Ks</span> &nbsp;
+						<h6> <span class="text-warning">{{number_format($item->discount)}} Ks</span> &nbsp;
 							<del>{{number_format($item->price)}} Ks</del></h6>
 						@else
-						<strong>Price:</strong> <h6 class="text-warning">{{number_format($item->price)}} Ks</h6>
+					    <h6 class="text-warning">{{number_format($item->price)}} Ks</h6>
 						@endif
 
 						<div class="description">

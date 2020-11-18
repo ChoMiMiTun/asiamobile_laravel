@@ -59,6 +59,8 @@ class SlideController extends Controller
         $slide = new Slide();
         $slide->description = $request->description;
         $slide->photo = $path;
+        $slide->start = $request->start;
+        $slide->end = $request->end;
         $slide->save();
 
         // redirect
@@ -121,9 +123,11 @@ class SlideController extends Controller
         }
 
         // update
-        $slider->name = $request->name;
-        $slider->photo = $path;
-        $slider->save();
+        $slide->description = $request->description;
+        $slide->photo = $path;
+        $slide->start = $request->start;
+        $slide->end = $request->end;
+        $slide->save();
 
         // redirect
         return redirect()->route('slide.index');

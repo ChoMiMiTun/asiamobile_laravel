@@ -35,19 +35,9 @@
               <div class="card-body">
 
                 <form method="post" action="{{route('slide.update', $slide->id)}}" class="my-3" enctype="multipart/form-data">
+                  
                   @csrf
                   @method('PUT')
-                  <div class="form-group row">
-                    <label class="control-label col-md-2">Name:</label>
-                    <div class="col-md-9">
-                      <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{$slide->description}}">
-                        @error('description')
-                          <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                          </span>
-                        @enderror
-                    </div>
-                  </div>
 
                   <div class="form-group row">
                     <label class="control-label col-md-2">Photo: (<small class="text-danger">* jpeg|bmp|png</small>)</label>
@@ -72,8 +62,42 @@
                             <strong>{{ $message }}</strong>
                           </span>
                         @enderror
+                      </div>
                     </div>
                   </div>
+                </div>
+                  
+
+                <div class="form-group row">
+                    <label for="description" class="col-md-2 col-form-label"> Description </label>
+                    <div class="col-md-9">
+                      <textarea rows="6" class="form-control textarea" id="description"  name="description" placeholder="Slider Description...">{{old('description')}}{!!$slide->description!!}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                  <label class="control-label col-md-2">Start Date:</label>
+                  <div class="col-md-9">
+                    <input type="text" name="start" class="form-control @error('start') is-invalid @enderror" value="{{$slide->start}}">
+                     @error('start')
+                      <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="form-group row py-2">
+                  <label class="control-label col-md-2">End Date:</label>
+                  <div class="col-md-9">
+                    <input type="text" name="end" class="form-control @error('end') is-invalid @enderror" value="{{$slide->end}}">
+                     @error('end')
+                      <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                  </div>
+                </div>
 
                   <div class="form-group row my-3">
                     <div class="col-md-12">

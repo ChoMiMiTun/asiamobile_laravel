@@ -195,7 +195,7 @@ Version:1.0
 }
 .btn:hover{
 	color:#fff;
-	background:#F7941D;
+	background:#c49a0c;
 }
 #scrollUp {
 	right: 10px;
@@ -388,7 +388,7 @@ Version:1.0
 	display: inline-block;
 	margin-right: 4px;
 	font-size: 15px;
-	color: #F7941D;
+	color: #c49a0c;
 	position: relative;
 	top: 3px;
 }
@@ -4974,4 +4974,66 @@ Version:1.0
 .brand-item:last-child{
 	border-right: none;
 	
+}
+
+.carousel-caption{
+	margin-top: 70px;
+    min-height: 300px;
+    min-width: 100%;
+    color: #da000f;
+    /* right: 58%; */
+    text-align: center;
+    max-width: 500px;
+    left: 1%;
+    top: auto;
+}
+
+.bg-logocolor{
+	background: #c49a0c;
+	color: #fff;
+}
+
+.main-dropdown{
+	width: 240px!important;
+}
+
+.main-dropdown li a{
+	color: #666!important;
+}
+
+.main-dropdown a{
+	padding: 10px 15px!important;
+}
+
+.main-drodown li hover, .sub-drodown li hover{
+	background: #fff!important;
+}
+
+.myul ul{
+	margin-left: 0;
+}
+
+.main-dropdown i{
+	margin-top: 6px;
+}
+
+.header.shop .nav .main-dropdown li:hover a{
+	background: #c49a0c!important;
+	color: #fff!important;
+}
+
+.header.shop .nav .main-dropdown li a{
+	background: #fff!important;
+}
+
+
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
 }

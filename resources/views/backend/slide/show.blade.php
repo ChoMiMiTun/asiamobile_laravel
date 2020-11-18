@@ -40,6 +40,8 @@
                   
                   <p><img src="{{asset($slide->photo)}}" class="img-fluid" alt=""></p>
                   <p>{{$slide->description}}</p>
+                  <p><strong>Start Date: </strong>{{$slide->start}}</p>
+                  <p><strong>End Date: </strong>{{$slide->end}}</p>
                   <a href="{{route('slide.index')}}" class="btn btn-outline-primary ml-2">Back</a>
                   
                 </div>

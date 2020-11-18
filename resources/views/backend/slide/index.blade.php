@@ -41,8 +41,8 @@
                     <th>No.</th>
                     <th>Photo</th>
                     <th>Description</th>
-                    <th>Create Date</th>
-                    <th>Update Date</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -56,8 +56,8 @@
 	                <td>{{$i++}}</td>
 	                <td><img src="{{$slide->photo}}" class="img-fluid" style="width: 80px"></td>
                   <td>{!!$slide->description!!}</td>
-	                <td>{{$slide->created_at->format('d-m-Y')}}</td>
-	                <td>{{$slide->updated_at->format('d-m-Y')}}</td>
+	                <td>{{$slide->start}}</td>
+	                <td>{{$slide->end}}</td>
 	                <td>
 	                  <a href="{{route('slide.edit',$slide->id)}}" class="btn btn-warning">Edit</a>
 	                  <a href="{{route('slide.show',$slide->id)}}" class="btn btn-info">Show</a>

@@ -52,20 +52,15 @@
 
                     <div class="form-group row">
                     <label for="" class="col-sm-2 col-form-label d-block"> Choose Category </label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="category_id">
-
-
-                                  @foreach($categories as $category)
-
-                                  <option value="{{$category->id}}" {{$category->id == $subcategory->category_id ? 'selected' : ''}}>{{$category->name}}</option> 
-                                  
-                                  @endforeach
-
-                                  
-                                </select>
-                            </div>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="category_id">
+                          @foreach($categories as $category)
+                          <option value="{{$category->id}}" {{$category->id == $subcategory->category_id ? 'selected' : ''}}>{{$category->name}}</option>
+                          @endforeach
+                        </select>
                     </div>
+                    </div>
+                    
                     <div class="form-group row py-2">
                       <div class="offset-2 col-md-9">
                         <input type="submit" name="btnsubmit" value="Update" class="btn btn-primary">

@@ -103,7 +103,7 @@ $(document).ready(function(){
 									<td>
 										<p> ${v.name} <p/>
 									</td>
-									<td>
+									<td style="width:200px;">
 										<button class="btn btn-outline-secondary plus_btn" data-id="${i}"> 
 											<i class="fa fa-plus"></i>
 										</button>
