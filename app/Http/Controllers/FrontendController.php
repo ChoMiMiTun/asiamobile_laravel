@@ -86,17 +86,18 @@ class FrontendController extends Controller
     {
         return view('frontend.signuppage');
     }
-    public function search(Request $request)
-    {
-        $searchData = $request['search_data'];
-        dd($searchData);
+    
+    // public function search(Request $request)
+    // {
+    //     $searchData = $request['search_data'];
+    //     dd($searchData);
 
-        // $categories = Category::all();
+    //     $categories = Category::all();
         
 
-        // $items = Item::where('name','=',$searchData)->paginate(10);
-        // return view('frontend.homepage.mainpage',compact('items','categories'));
-    }
+    //     $items = Item::where('name','=',$searchData)->paginate(10);
+    //     return view('frontend.homepage.mainpage',compact('items','categories'));
+    // }
 
     public function search(Request $request)
     {
