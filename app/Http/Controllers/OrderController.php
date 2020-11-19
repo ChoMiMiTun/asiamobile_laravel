@@ -73,11 +73,11 @@ class OrderController extends Controller
             $order->items()->attach($row->id,['quantity'=>$row->qty]);
         }
 
-        Alert::success(Auth::user()->name, 'Order Successfully Completed!');
+        // Alert::success(Auth::user()->name, 'Order Successfully Completed!');
 
         // ajax response
-        // return response()
-        //     ->json(['msg' => 'Successful You Order!']);
+        return response()
+            ->json(['msg' => 'Successful You Order!']);
 
         // form response
         return redirect()->route('mainpage');

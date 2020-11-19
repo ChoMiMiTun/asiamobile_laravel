@@ -38,7 +38,7 @@
                 @else
                   <a href="{{route('signinpage')}}"><button class="btn btn-success">Sign in Checkout</button></a>
                 @endrole
-                </form>
+                
                 
                   {{-- <a href="#" class="btn btn-secondary btn-block mainfullbtncolor checkout"> Check Out </a> --}}
                 

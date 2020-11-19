@@ -131,7 +131,7 @@ $(document).ready(function(){
 
 					html+=`
 							<tr>
-								<td colspan="6">
+								<td colspan="7">
 									<h3 class="text-right"> Total : ${total} Ks </h3>
 								</td>
 							</tr>

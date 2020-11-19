@@ -303,9 +303,7 @@
 
 @yield('script')
 
-
-<<<<<<< HEAD
-<script>
+{{-- <script>
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
@@ -313,10 +311,8 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
-</script>
+</script> --}}
 
-=======
->>>>>>> 85c52427b230ce85c7bf2bcf99d4908813d31309
 </body>
 </html>
 

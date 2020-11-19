@@ -123,3 +123,7 @@
 	<!--/ End Product Style 1  -->	
 
 @endsection
+
+@section('script')
+    <script type="text/javascript" src="{{asset('../my_asset/custom.js')}}"></script>
+@endsection

@@ -86,6 +86,7 @@
 												</div>
 												<div class="product-action-2">
 													<a title="Add to cart" class="addtocartBtn text-decoration-none btn btn-warning" data-photo="{{$item->photo}}" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-sku="{{$item->sku}}" data-discount="{{$item->discount}}">Add To Cart</a>
+
 												</div>
 											</div>
 										</div>
@@ -107,4 +108,8 @@
 		<!--/ End Product Style 1  -->	
 
   
+@endsection
+
+@section('script')
+    <script type="text/javascript" src="{{asset('../my_asset/custom.js')}}"></script>
 @endsection

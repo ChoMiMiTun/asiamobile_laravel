@@ -30,7 +30,6 @@ Route::middleware('role:admin')->group(function () {
   Route::post('review', 'ReviewContorller@store')->name('feedback');
   Route::get('customerreviews', 'ReviewController@index')->name('customerreviews');
   Route::get('customerreviews/{id}', 'ReviewController@show')->name('reviews.show');
-  Route::resource('order', 'OrderController');
 
   });
 
@@ -45,7 +44,7 @@ Route::post('reviews', 'ReviewController@store')->name('reviews.review');
 
 
 // Order Process
-
+ Route::resource('order', 'OrderController');
 Route::post('confirm/{id}', 'OrderController@confirm')->name('order.confirm');
 Route::get('/brands', 'FrontendController@brands')->name('brandpage');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
