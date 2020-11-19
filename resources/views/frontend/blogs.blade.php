@@ -4,9 +4,9 @@
 
 @section('content')
 
-	<section class="blog-single section my-3">
+	<section class="blog-single section my-3 py-3">
 		<div class="container">
-			
+			<h3>Blogs</h3>
 
 				@foreach($blogs as $blog)
 				<div class="row my-3 py-3">
