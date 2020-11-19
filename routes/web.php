@@ -45,6 +45,7 @@ Route::post('reviews', 'ReviewController@store')->name('reviews.review');
 
 // Order Process
  Route::resource('order', 'OrderController');
+ // Route::get('/orderhistory', 'OrderController@orderhistory')->name('orderhistory');
 Route::post('confirm/{id}', 'OrderController@confirm')->name('order.confirm');
 Route::get('/brands', 'FrontendController@brands')->name('brandpage');
 Route::get('/contact', 'FrontendController@contact')->name('contact');

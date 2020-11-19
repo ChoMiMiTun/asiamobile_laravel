@@ -135,4 +135,12 @@ class OrderController extends Controller
         $order->save();
         return back();
     }
+
+    public function orderhistory()
+    {
+        $user_id = Auth::id();
+        $orders = Order::all();
+        return view('frontend.order-history',compact('user_id', 'orders'));
+    }
+
 }

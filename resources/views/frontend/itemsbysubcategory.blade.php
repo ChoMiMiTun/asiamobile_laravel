@@ -41,7 +41,8 @@
 							<div class="col-12">
 								<!-- Shop Top -->
 								<div class="shop-top">
-									<div class="shop-shorter">
+									<p><strong>Filter By Subcategory: </strong> {{$mysubcategory->name}}</p>
+									{{-- <div class="shop-shorter">
 										<div class="single-shorter">
 											<label>Show :</label>
 											<select>
@@ -60,7 +61,7 @@
 											</select>
 										</div>
 									</div>
-{{-- 									<ul class="view-mode">
+									<ul class="view-mode">
 										<li class="active"><a href="shop-grid.html"><i class="fa fa-th-large"></i></a></li>
 										<li><a href="shop-list.html"><i class="fa fa-th-list"></i></a></li>
 									</ul> --}}
