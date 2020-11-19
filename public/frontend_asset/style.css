@@ -1763,7 +1763,7 @@ Version:1.0
 }
 /* Sinlge Product */
 .single-product{
-	margin-top:50px;
+	margin-top:20px;
 }
 .single-product .product-img {
   position: relative;
@@ -4985,7 +4985,7 @@ Version:1.0
 
 .brand-item{
 	border-right: 1px solid #bfbfbf;
-	border-bottom: 1px solid #bfbfbf;
+	/*border-bottom: 1px solid #bfbfbf;*/
 }
 
 .brand-item:last-child{
@@ -5053,4 +5053,17 @@ Version:1.0
   top: 0;
   left: 100%;
   margin-top: -1px;
+}
+
+.brand_border{
+	border: 1px solid #bfbfbf;
+}
+
+.subcategor-list{
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.subcategor-list-li{
+	margin-bottom: 0!important;
 }

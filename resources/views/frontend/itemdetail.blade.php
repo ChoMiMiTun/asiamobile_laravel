@@ -47,10 +47,10 @@
 	                    @endif
 
 						@if($item->discount)
-						<h6> <span class="text-warning">{{number_format($item->discount)}} Ks</span> &nbsp;
+						<h6> <span style="color:#c49a0c;">{{number_format($item->discount)}} Ks</span> &nbsp;
 							<del>{{number_format($item->price)}} Ks</del></h6>
 						@else
-					    <h6 class="text-warning">{{number_format($item->price)}} Ks</h6>
+					    <h6 style="color:#c49a0c;">{{number_format($item->price)}} Ks</h6>
 						@endif
 
 						<div class="description">

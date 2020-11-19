@@ -123,15 +123,13 @@
 					<div class="col-lg-3 col-md-3 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><img src="{{asset('../frontend_asset/images/top_logo.png')}}" alt="logo"></a>
+							<a href="{{route('mainpage')}}"><img src="{{asset('../frontend_asset/images/top_logo.png')}}" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 
-
-
 						<!-- Search Form -->
 						<div class="search-top">
-							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+							<div class="top-search"><a href="#"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
 							<div class="search-top">
 
@@ -152,9 +150,6 @@
 							<!--/ End Search Form -->
 						</div>
 						<!--/ End Search Form -->
-
-
-
 
 						<div class="mobile-nav"></div>
 					</div>

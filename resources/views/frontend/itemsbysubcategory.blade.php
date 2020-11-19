@@ -16,9 +16,19 @@
 									<h3 class="title">Categories</h3>
 									<ul class="categor-list">
 										{{-- <li><a href="#">T-shirts</a></li> --}}
-
 										@foreach($data[0] as $category)
 											<li><a href="#">{{$category->name}}</a></li>
+
+											<ul class="subcategor-list">
+												@foreach($category->subcategories as $subcategory)
+												<li class="subcategor-list-li">
+													<a href="{{route('itemsbysubcategory',$subcategory->id)}}">
+														<i class="fa fa-angle-right" aria-hidden="true"></i>
+														{{$subcategory->name}}
+													</a>
+												</li>
+												@endforeach
+											</ul>
 										@endforeach
 									</ul>
 								</div>
@@ -75,7 +85,7 @@
 													<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 												</div>
 												<div class="product-action-2">
-													<a title="Add to cart" href="#">Add to cart</a>
+													<a title="Add to cart" class="addtocartBtn text-decoration-none btn btn-warning" data-photo="{{$item->photo}}" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-sku="{{$item->sku}}" data-discount="{{$item->discount}}">Add To Cart</a>
 												</div>
 											</div>
 										</div>

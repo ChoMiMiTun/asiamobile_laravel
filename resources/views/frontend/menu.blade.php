@@ -17,11 +17,11 @@
 								</ul>
 								@endforeach
 
-									@foreach ($categories as $category)
-										<option>
-											{{$category->name}}
-										</option>
-									@endforeach
+								@foreach ($categories as $category)
+									<option>
+										{{$category->name}}
+									</option>
+								@endforeach
 
 								<li><a href="#">Brands</a></li>
 								{{-- <li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
